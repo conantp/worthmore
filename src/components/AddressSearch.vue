@@ -55,31 +55,31 @@ function submitName() {
         "
     />
     <button v-show="isNamePresent" @click="submitName">Submit</button>
-  <div>
-    <div>
-      {{ rowCount }} results
-    </div>
-    <ul>
-      <li
-        class='m-2 p-2 border-slate-300 border-2 rounded-md'
-        v-for="row in rows"
-        @click="store.setActiveRow(row)"
+  <div class='search-results--container'
+  v-if="rowCount"
+  >
+    <div 
+        class='search-results'
+    >
+      <div class='text-center p-2'>
+        {{ rowCount }} results
+      </div>
+      <ul
       >
-        <div class='text-md'>
-          {{ row.attributes.Address }}
-        </div>
-        <div class='text-md text-sky-500'>
-          ${{ getMarketValue(row) }}
-        </div>
-        <div>
-          <router-link 
-            :to="'/results/' + row.attributes.Address"
-          >
-            Results
+        <li
+          class='m-2 p-2 border-slate-300 border-2 rounded-md'
+          v-for="row in rows"
+        >
+            <router-link 
+              :to="'/results/' + row.attributes.Address"
+            >
+            <div class='text-md'>
+              {{ row.attributes.Address }}
+            </div>
           </router-link>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
   <div style='display: none;'>
     <table>
@@ -117,10 +117,22 @@ function submitName() {
     border:  1px solid black;
   }
 a {
-  color: #42b983;
+
 }
 
 li{
   cursor:  pointer;
 }
+
+.search-results--container{
+  @apply relative;
+}
+
+.search-results{
+  @apply absolute bg-white;
+  max-height:  400px;
+  overflow:  scroll;
+
+}
+
 </style>
