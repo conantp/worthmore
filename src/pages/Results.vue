@@ -2,7 +2,6 @@
     import ActiveParcel from '../components/ActiveParcel.vue';
     import ParcelMetrics from '../components/ParcelMetrics.vue';
     import ParcelMultiple from '../components/ParcelMultiple.vue';
-  import Mockup from '../assets/images/results.png'
 
 import { useRouter, useRoute } from 'vue-router'
 
@@ -18,7 +17,12 @@ let dollarUSLocale = Intl.NumberFormat('en-US');
 
 const activeResultsLink = computed(() => '/results/' + encodeURIComponent(activeParcel.attributes.Address) )
 
+  import ResultsTop from '../assets/images/results-top.png'
+  import ShareResults from '../assets/images/share-results.png'
+  import ShareResultsSocial from '../assets/images/share-results-social.png'
 
+import WhyThisMatters from '../sections/WhyThisMatters.vue'
+import FooterSearch from '../sections/FooterSearch.vue'
 
 
 const data = ref(null)
@@ -68,46 +72,70 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
 </script>
 
 <template>
-  <div id='results'>
+  <div id='results'
 
-    <div class='results-inner'>
+  >
 
-      
-      <div class='property-grid'>
-        <div>
-           <ParcelMetrics 
-              v-if="activeParcel"
-              :parcel="activeParcel"
-          />
+    <div class='results-inner'
+          v-show="activeParcel && biltmoreParcel"
+
+    >
+
+      <div class='results-top'>
+        <div class='property-grid'>
+          <div class='property-primary'>
+             <ParcelMetrics 
+                v-if="activeParcel"
+                :parcel="activeParcel"
+            />
+          </div>
+          <div>
+             <ParcelMetrics 
+                v-if="biltmoreParcel"
+                :parcel="biltmoreParcel"
+            
+            />
+
+          </div>
         </div>
-        <div>
-           <ParcelMetrics 
-              v-if="biltmoreParcel"
-              :parcel="biltmoreParcel"
-          
-          />
+        <ParcelMultiple
+            v-if="activeParcel && biltmoreParcel"
 
-        </div>
+            :primaryParcel="activeParcel"
+            :compareParcel="biltmoreParcel"
+          />
       </div>
-      <ParcelMultiple
-          v-if="activeParcel && biltmoreParcel"
 
-          :primaryParcel="activeParcel"
-          :compareParcel="biltmoreParcel"
-        />
-    </div>
-
-    <img 
-        :src="Mockup"
+      <!-- <img 
+        :src="ResultsTop"
+      /> -->
+      <img 
+        :src="ShareResults"
       />
+ 
+      <WhyThisMatters />
+      <FooterSearch />
+    </div>
   </div>
 </template>
 
 <style scoped>
-  .results-inner{
-    @apply grid grid-cols-3 gap-2
+  .results{
+    min-height: 80vh;
+  }
+  .results-top{
+    @apply max-w-4xl mx-auto grid grid-cols-3 gap-2
   }
   .property-grid{
-    @apply m-8 col-span-2 grid grid-cols-2 gap-4 border-4 border-black rounded;
+    @apply bg-white m-4 col-span-2 grid grid-cols-2 border-4 border-black rounded-xl;
   }
+
+  .property-primary{
+    @apply border-r-4 border-black;
+  }
+
+  img{
+      @apply max-w-4xl mx-auto grid
+    }
+
 </style>

@@ -29,10 +29,10 @@ const activeParcel = props.parcel
 </script>
 
 <template>
-  <div>
+  <div class='outer'>
     <div
       v-if="activeParcel"
-      class='text-2xl font-bold' 
+      class='parcel-address' 
     >
       {{ activeParcel.attributes.Address }}
     </div>
@@ -41,14 +41,14 @@ const activeParcel = props.parcel
     </div> -->
     <div class=''>
       <label>Appraised Land Value:</label>
-      ${{ dollarUSLocale.format(store.landValue(activeParcel) ) }} land value
+      ${{ dollarUSLocale.format(store.landValue(activeParcel) ) }}
     </div>
     <div>
       <label>Acreage:</label>
       {{ addCommas(store.acrerage(activeParcel).toFixed(2) ) }} acres
     </div>
-    <div>
-      <label>Appraised Land Value / Acre:</label>
+    <div class='last'>
+      <label>Appraised Land <br>Value / Acre:</label>
       ${{ dollarUSLocale.format(store.landValuePerAcre(activeParcel) ) }} per acre
     </div>
   </div>
@@ -57,10 +57,20 @@ const activeParcel = props.parcel
 </template>
 
 <style scoped>
-
-    div{
-      @apply border-black border-2 p-4 text-center;
+  .outer{
+  }
+ 
+    .outer > div{
+      @apply text-lg border-black border-b-4 p-4 text-center;
     }
+
+   .outer .parcel-address{
+    @apply text-xl font-bold;
+  }
+
+  .outer .last{
+    @apply border-b-0;
+  }
 
     label{
       @apply block;

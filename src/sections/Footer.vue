@@ -3,17 +3,18 @@
 import Logo from '../assets/logo.png'
 
 import Social from '../assets/images/social.png'
+import Mockup from '../assets/images/footer.png'
 
 </script>
 
 <template>
   <div
-    class=''
+    class='bg-white'
 
   >
-    <div class='nav-inner'>
+    <!-- <div class='nav-inner'>
       <router-link to="/"
-      class=''
+      class='content-end'
       >
         <img
          :src="Logo" 
@@ -32,19 +33,17 @@ import Social from '../assets/images/social.png'
         </div>
       </div>
       
-    </div>
+    </div> -->
+    <img
+       :src="Mockup" 
+       class='w-full'
+      />
   </div>
 </template>
 
 <style scoped>
-  .nav-links{
-    @apply grid content-center;
-  }
-  .nav-links  a{
-    @apply inline-block font-bold m-2;
-  }
-
-  .nav-inner{
-    @apply grid grid-cols-2;
+  img{
+    @apply py-4 max-w-4xl mx-auto
+  
   }
 </style>

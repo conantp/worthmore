@@ -1,7 +1,10 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import Nav from './components/Nav.vue'
+
+import Header from './sections/Header.vue'
+import Footer from './sections/Footer.vue'
+
 
 
 </script>
@@ -9,12 +12,9 @@ import Nav from './components/Nav.vue'
 <template>
   <div id='demo'>
     
-  
-    <Nav />
-  <!-- route outlet -->
-  <!-- component matched by the route will render here -->
-  <router-view></router-view>
-
+    <Header />
+    <router-view></router-view>
+    <Footer />
   </div>
 </template>
 
@@ -29,7 +29,7 @@ import Nav from './components/Nav.vue'
 
 #demo{
   @apply bg-primary;
-  width:  80%;
+  width:  100%;
   margin: 0 auto;
 }
 </style>

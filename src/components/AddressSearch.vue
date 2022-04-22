@@ -36,12 +36,7 @@ function submitName() {
 </script>
 
 <template>
-  <h1
-    class='bg-red-500'
-  >
-  </h1>
 
-  
   <div>
     <input 
       type='text' 

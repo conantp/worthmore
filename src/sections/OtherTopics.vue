@@ -12,9 +12,7 @@ import Social from '../assets/images/social.png'
 
   >
     <div class='nav-inner'>
-      <router-link to="/"
-      class=''
-      >
+      <router-link to="/">
         <img
          :src="Logo" 
          class='w-full mx-auto'
@@ -37,14 +35,11 @@ import Social from '../assets/images/social.png'
 </template>
 
 <style scoped>
-  .nav-links{
-    @apply grid content-center;
-  }
   .nav-links  a{
     @apply inline-block font-bold m-2;
   }
 
   .nav-inner{
-    @apply grid grid-cols-2;
+    @apply p-8 border-b-2 border-black grid grid-cols-2;
   }
 </style>

@@ -3,3 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer components {
+	.page-section{
+		@apply max-w-4xl mx-auto ;
+	}
+}
