@@ -1,21 +1,47 @@
 <script setup>
 
+import Logo from '../assets/logo.png'
 
+import Social from '../assets/images/social.png'
 
 </script>
 
 <template>
-  <div>
-    <!-- use the router-link component for navigation. -->
-    <!-- specify the link by passing the `to` prop. -->
-    <!-- `<router-link>` will render an `<a>` tag with the correct `href` attribute -->
-    <router-link to="/">Home</router-link>
-    <router-link to="/about">About</router-link>
+  <div
+    class=''
+
+  >
+    <div class='nav-inner'>
+      <router-link to="/"
+      class='content-end'
+      >
+        <img
+         :src="Logo" 
+         class='w-full mx-auto'
+        />
+      </router-link>
+
+      <div class='nav-links col-span-1 grid grid-cols-3'>
+        <router-link to="/about">Why this matters</router-link>
+        <router-link to="/about">Our Story</router-link>
+        <div class='nav-social'>
+            <img
+             :src="Social" 
+             class='w-20'
+            />
+        </div>
+      </div>
+      
+    </div>
   </div>
 </template>
 
 <style scoped>
-  a{
-    @apply bg-red-500 inline-block font-bold rounded-lg shadow-sm px-6 py-2 m-2;
+  .nav-links  a{
+    @apply inline-block font-bold m-2;
+  }
+
+  .nav-inner{
+    @apply p-8 border-b-2 border-black grid grid-cols-2;
   }
 </style>

@@ -2,6 +2,7 @@
     import ActiveParcel from '../components/ActiveParcel.vue';
     import ParcelMetrics from '../components/ParcelMetrics.vue';
     import ParcelMultiple from '../components/ParcelMultiple.vue';
+  import Mockup from '../assets/images/results.png'
 
 import { useRouter, useRoute } from 'vue-router'
 
@@ -68,35 +69,45 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
 
 <template>
   <div id='results'>
-    <h2>Results</h2>
 
-    <ParcelMultiple
-      v-if="activeParcel && biltmoreParcel"
+    <div class='results-inner'>
 
-      :primaryParcel="activeParcel"
-      :compareParcel="biltmoreParcel"
-    />
-    <div class='grid grid-cols-2 gap-4'>
-      <div>
-        <h2>Primary</h2>
-         <ParcelMetrics 
-            v-if="activeParcel"
-            :parcel="activeParcel"
-        />
+      
+      <div class='property-grid'>
+        <div>
+           <ParcelMetrics 
+              v-if="activeParcel"
+              :parcel="activeParcel"
+          />
+        </div>
+        <div>
+           <ParcelMetrics 
+              v-if="biltmoreParcel"
+              :parcel="biltmoreParcel"
+          
+          />
+
+        </div>
       </div>
-      <div>
-        <h2>Biltmore</h2>
-         <ParcelMetrics 
-            v-if="biltmoreParcel"
-            :parcel="biltmoreParcel"
-        
-        />
+      <ParcelMultiple
+          v-if="activeParcel && biltmoreParcel"
 
-      </div>
+          :primaryParcel="activeParcel"
+          :compareParcel="biltmoreParcel"
+        />
     </div>
+
+    <img 
+        :src="Mockup"
+      />
   </div>
 </template>
 
-<style>
-
+<style scoped>
+  .results-inner{
+    @apply grid grid-cols-3 gap-2
+  }
+  .property-grid{
+    @apply m-8 col-span-2 grid grid-cols-2 gap-4 border-4 border-black rounded;
+  }
 </style>

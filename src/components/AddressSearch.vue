@@ -47,15 +47,16 @@ function submitName() {
       type='text' 
       v-model="name"
       @input="submitName"
+      placeholder="Enter your address to find out" 
       class="
+        border-4
+        border-black
+        border-round
           py-2
           px-4
           font-semibold
           rounded-lg
           shadow-md
-          text-white
-          bg-green-500
-          hover:bg-green-700
         "
     />
     <button v-show="isNamePresent" @click="submitName">Submit</button>

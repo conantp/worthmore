@@ -9,8 +9,7 @@ import Nav from './components/Nav.vue'
 <template>
   <div id='demo'>
     
-
-
+  
     <Nav />
   <!-- route outlet -->
   <!-- component matched by the route will render here -->
@@ -26,12 +25,11 @@ import Nav from './components/Nav.vue'
   /*-moz-osx-font-smoothing: grayscale;*/
   /*text-align: center;*/
   /*color: #2c3e50;*/
-  margin-top: 60px;
 }
 
 #demo{
-  border:  1px solid black;
-  width:  50%;
+  @apply bg-primary;
+  width:  80%;
   margin: 0 auto;
 }
 </style>
