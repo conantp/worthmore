@@ -8,6 +8,8 @@ let dollarUSLocale = Intl.NumberFormat('en-US');
 
 const activeParcel = computed(() => store.activeRow)
 
+const activeResultsLink = computed(() => '/results/' + encodeURIComponent(activeParcel.attributes.Address) )
+
 // const count = ref(0)
 </script>
 
@@ -21,19 +23,25 @@ const activeParcel = computed(() => store.activeRow)
     v-if="store.activeRow"
   >
     {{ activeParcel.attributes.Address }}
+    <router-link 
+      :to="'/results/' + activeParcel.attributes.Address"
+    >
+      Results
+    </router-link>
+
   </div>
   <div>
     ${{ dollarUSLocale.format(store.activeAppraisedValue) }}<br>
     ${{ dollarUSLocale.format(store.activeLandValue) }}<br>
     {{ store.activeAcrerage }} acres<br>
     ${{ dollarUSLocale.format(store.activeLandValuePerAcre) }}
-
   </div>
   <div
       @click="store.setActiveRow(false)"
   >
     Clear
   </div>
+
 
 </template>
 

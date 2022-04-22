@@ -2,10 +2,6 @@
 import { ref, computed } from 'vue'
 import { useMainStore } from '../stores/main.js'
 
-const props = defineProps({
-  msg: String
-})
-
 const store = useMainStore();
 
 const data = ref(null)
@@ -43,18 +39,14 @@ function submitName() {
   <h1
     class='bg-red-500'
   >
-    {{ msg }}
   </h1>
 
-  <div>
-    {{ rowCount }}
-  </div>
+  
   <div>
     <input 
       type='text' 
       v-model="name"
-      @change="submitName"
-      @keypress="submitName"
+      @input="submitName"
       class="
           py-2
           px-4
@@ -68,6 +60,9 @@ function submitName() {
     />
     <button v-show="isNamePresent" @click="submitName">Submit</button>
   <div>
+    <div>
+      {{ rowCount }} results
+    </div>
     <ul>
       <li
         class='m-2 p-2 border-slate-300 border-2 rounded-md'
@@ -79,6 +74,13 @@ function submitName() {
         </div>
         <div class='text-md text-sky-500'>
           ${{ getMarketValue(row) }}
+        </div>
+        <div>
+          <router-link 
+            :to="'/results/' + row.attributes.Address"
+          >
+            Results
+          </router-link>
         </div>
       </li>
     </ul>
@@ -102,6 +104,7 @@ function submitName() {
             v-for="field in row.attributes"
           >
             {{ field }}
+
           </td>
         </tr>
       </tbody>
@@ -110,10 +113,7 @@ function submitName() {
 
 
   </div>
-
-  <button type="button" @click="store.increment()">count is: {{ store.count }}</button>
   
-  <div @click="store.$reset()">Reset</div>  
 </template>
 
 <style scoped>

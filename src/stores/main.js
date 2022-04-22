@@ -22,6 +22,22 @@ export const useMainStore = defineStore('main', {
   // state: () => ({ count: 0 })
 
   getters: {
+    appraisedValue: (state) => {
+      return (parcel) => parcel.attributes.AppraisedValue
+    },
+    landValue: (state) => {
+      return (parcel) => parcel.attributes.LandValue
+    },
+    acrerage: (state) => {
+      return (parcel) => parcel.attributes.Acreage
+    },
+    landValuePerAcre: (state) => {
+      return (parcel) => Math.round(state.landValue(parcel) / state.acrerage(parcel) )
+    },
+    multipleLandValuePerAcre: (state) => {
+      return (primaryParcel, compareParcel) => Math.round(state.landValuePerAcre(primaryParcel) / state.landValuePerAcre(compareParcel) )
+    },
+
     activeAppraisedValue: (state) => state.activeRow.attributes.AppraisedValue,
     activeLandValue: (state) => state.activeRow.attributes.LandValue,
     activeAcrerage: (state) => state.activeRow.attributes.Acreage,

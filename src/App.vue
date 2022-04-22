@@ -1,20 +1,21 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-// import HelloWorld from './components/HelloWorld.vue'
+import Nav from './components/Nav.vue'
 
-import AddressSearch from './components/AddressSearch.vue';
-
-import ActiveParcel from './components/ActiveParcel.vue';
 
 </script>
 
 <template>
   <div id='demo'>
-    <ActiveParcel />
-    <AddressSearch  
-      msg="Hello Vue 3 + Vite" 
-    />
+    
+
+
+    <Nav />
+  <!-- route outlet -->
+  <!-- component matched by the route will render here -->
+  <router-view></router-view>
+
   </div>
 </template>
 
