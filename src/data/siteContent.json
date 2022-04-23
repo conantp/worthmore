@@ -1,0 +1,25 @@
+{
+    "why-this-matters-links": [
+        {
+            "title": "How is Property Assessed in North Carolina?",
+            "icon": "topic-icon--state",
+            "link" : "/about",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In justo nulla, tempus quis bibendum vitae, porta sed ligula. Nunc ut ante vulputate sem imperdiet facilisis et nec leo. Curabitur pharetra elementum erat, eu volutpat dui facilisis non. Curabitur porttitor bibendum sem, sit amet dignissim sem lacinia in. Nulla cursus dapibus sapien, at egestas urna. Duis at vestibulum sapien. Nullam sagittis, magna vel cursus porta, arcu mi suscipit massa, vitae placerat velit tortor vitae lorem. Aliquam elit lacus, luctus at dapibus id, pretium nec mi. Integer congue erat quam, eget egestas dolor eleifend ut. Etiam eu pulvinar diam. Duis efficitur magna et dui feugiat accumsan. Curabitur ligula nisl, lacinia at dictum ut, imperdiet vel magna. Integer sed tempor lectus. Integer facilisis fermentum rhoncus.",
+            "enabled": true
+        },
+        {
+            "title": "Who Assesses property in North Carolina?",
+            "icon": "topic-icon--search",
+            "link" : "/about1",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In justo nulla, tempus quis bibendum vitae, porta sed ligula. Nunc ut ante vulputate sem imperdiet facilisis et nec leo. Curabitur pharetra elementum erat, eu volutpat dui facilisis non. Curabitur porttitor bibendum sem, sit amet dignissim sem lacinia in. Nulla cursus dapibus sapien, at egestas urna. Duis at vestibulum sapien. Nullam sagittis, magna vel cursus porta, arcu mi suscipit massa, vitae placerat velit tortor vitae lorem. Aliquam elit lacus, luctus at dapibus id, pretium nec mi. Integer congue erat quam, eget egestas dolor eleifend ut. Etiam eu pulvinar diam. Duis efficitur magna et dui feugiat accumsan. Curabitur ligula nisl, lacinia at dictum ut, imperdiet vel magna. Integer sed tempor lectus. Integer facilisis fermentum rhoncus.",
+            "enabled": true
+        },
+        {
+            "title": "Are property taxes fair?",
+            "icon": "topic-icon--scales",
+            "link" : "/about2",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In justo nulla, tempus quis bibendum vitae, porta sed ligula. Nunc ut ante vulputate sem imperdiet facilisis et nec leo. Curabitur pharetra elementum erat, eu volutpat dui facilisis non. Curabitur porttitor bibendum sem, sit amet dignissim sem lacinia in. Nulla cursus dapibus sapien, at egestas urna. Duis at vestibulum sapien. Nullam sagittis, magna vel cursus porta, arcu mi suscipit massa, vitae placerat velit tortor vitae lorem. Aliquam elit lacus, luctus at dapibus id, pretium nec mi. Integer congue erat quam, eget egestas dolor eleifend ut. Etiam eu pulvinar diam. Duis efficitur magna et dui feugiat accumsan. Curabitur ligula nisl, lacinia at dictum ut, imperdiet vel magna. Integer sed tempor lectus. Integer facilisis fermentum rhoncus.",
+            "enabled": true
+        }
+    ]
+}

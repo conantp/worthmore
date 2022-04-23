@@ -26,6 +26,8 @@ import Results from './pages/Results.vue'
 const routes = [
   { path: '/', component: Home },
   { path: '/about', component: About },
+  { path: '/about1', component: About },
+  { path: '/about2', component: About },
   { path: '/share', component: Share },
   { path: '/results/:address', component: Results },
 

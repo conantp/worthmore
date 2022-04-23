@@ -4,7 +4,10 @@ module.exports = {
     extend: {
       colors: {
         primary: '#7dcff6'
-      }
+      },
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'] 
+      },
     },
   },
   plugins: [],

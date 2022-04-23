@@ -99,8 +99,8 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
           </div>
         </div>
         <ParcelMultiple
+            class='parcel-multiple'
             v-if="activeParcel && biltmoreParcel"
-
             :primaryParcel="activeParcel"
             :compareParcel="biltmoreParcel"
           />
@@ -124,10 +124,10 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
     min-height: 80vh;
   }
   .results-top{
-    @apply max-w-4xl mx-auto grid grid-cols-3 gap-2
+    @apply max-w-4xl mx-auto grid sm:grid-cols-3 sm:gap-2
   }
   .property-grid{
-    @apply bg-white m-4 col-span-2 grid grid-cols-2 border-4 border-black rounded-xl;
+    @apply bg-white m-4 sm:col-span-2 grid grid-cols-2 border-4 border-black rounded-xl;
   }
 
   .property-primary{
@@ -135,7 +135,12 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
   }
 
   img{
-      @apply max-w-4xl mx-auto grid
+      @apply max-w-4xl mx-auto grid w-full;
+    }
+
+    .parcel-multiple{
+      @apply order-first sm:order-last;
+      @apply pt-4 mx-auto text-center;
     }
 
 </style>

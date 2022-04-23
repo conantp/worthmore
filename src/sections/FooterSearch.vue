@@ -1,8 +1,7 @@
 <script setup>
 
-import Mockup from '../assets/images/footer-search.png'
 import AddressSearch from '../components/AddressSearch.vue'
-import House from '../assets/images/house.png'
+import House from '../assets/images/house-top.png'
 
 </script>
 
@@ -26,16 +25,10 @@ import House from '../assets/images/house.png'
         />
       </div>
     </div>
-    <!-- <img class='mockup' :src="Mockup"> -->
   </div>
 </template>
 
 <style scoped>
-  .mockup{
-      @apply px-8 pt-8 max-w-4xl mx-auto ;
-
-  }
-
   .house{
   }
 
@@ -48,11 +41,13 @@ import House from '../assets/images/house.png'
   }
 
   .footer-search--inner{
-      @apply px-8 pt-8 max-w-4xl mx-auto grid grid-cols-2
+      @apply px-8 pt-8 max-w-4xl mx-auto grid sm:grid-cols-2
   }
 
   .address-search--container{
-          @apply grid content-center;
+      @apply sm:grid content-center pl-4;
+      @apply pb-4 sm:pb-0 order-first sm:order-last;
+      @apply text-center sm:text-left
 
   }
 </style>

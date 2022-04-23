@@ -44,6 +44,8 @@ function submitName() {
       @input="submitName"
       placeholder="Enter your address to find out" 
       class="
+        w-full
+        block
         border-4
         border-black
         border-round

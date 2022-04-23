@@ -1,6 +1,6 @@
 <script setup>
 
-import Logo from '../assets/logo.png'
+import Logo from '../assets/images/logo.png'
 
 import Social from '../assets/images/social.png'
 import Mockup from '../assets/images/footer.png'

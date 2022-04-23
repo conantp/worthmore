@@ -1,21 +1,27 @@
 <script setup>
+import { ref, computed } from 'vue'
+import TopicIcon from '../components/TopicIcon.vue'
 
-import Mockup from '../assets/images/why-this-matters.png'
+import siteContentData from '../data/siteContent.json'
+const siteContent = ref(siteContentData)
 
+const links = computed(() => {
+  return siteContentData['why-this-matters-links']
+})
 </script>
 
 <template>
-  <div
-    class='why-this-matters'
-  >
-    <router-link to="/about">
-      <div
-      class='why-this-matters--inner'
-      >
+  <div class='page-section why-this-matters'>
+    <div class='page-section--inner'>
+      <h2>Why This Matters</h2>
 
+      <div class='page-section--content'>
+          <TopicIcon 
+            v-for="link in links"
+            :content="link"
+          />
       </div>
-       <img class='mockup' :src="Mockup">
-     </router-link>
+    </div>
   </div>
 </template>
 
@@ -24,12 +30,7 @@ import Mockup from '../assets/images/why-this-matters.png'
     @apply bg-white;
   }
 
-  .why-this-matters--inner{
-    @apply px-8 pt-8 max-w-4xl mx-auto grid grid-cols-3;
-  }
-
-  .mockup{
-      @apply px-8 pt-8 max-w-4xl mx-auto ;
-
+  .page-section--content{
+    @apply grid grid-cols-3 gap-12
   }
 </style>

@@ -1,45 +1,38 @@
 <script setup>
+import TopicIcon from '../components/TopicIcon.vue'
 
-import Logo from '../assets/logo.png'
-
-import Social from '../assets/images/social.png'
-
+const props = defineProps({
+  title: {
+    type: String,
+    required: true
+  },
+  links: {
+    type: Array,
+    required: true
+  }
+})
 </script>
 
 <template>
-  <div
-    class=''
-
-  >
-    <div class='nav-inner'>
-      <router-link to="/">
-        <img
-         :src="Logo" 
-         class='w-full mx-auto'
-        />
-      </router-link>
-
-      <div class='nav-links col-span-1 grid grid-cols-3'>
-        <router-link to="/about">Why this matters</router-link>
-        <router-link to="/about">Our Story</router-link>
-        <div class='nav-social'>
-            <img
-             :src="Social" 
-             class='w-20'
-            />
-        </div>
+  <div class='page-section'>
+    <div class='page-section--inner'>
+      <h2>{{ title }}</h2>
+      <div class='page-section--content'>
+          <TopicIcon 
+            v-for="link in links"
+            :content="link"
+          />
       </div>
-      
     </div>
   </div>
 </template>
 
 <style scoped>
-  .nav-links  a{
-    @apply inline-block font-bold m-2;
+  .page-section{
+    @apply bg-white;
   }
 
-  .nav-inner{
-    @apply p-8 border-b-2 border-black grid grid-cols-2;
+  .page-section--content{
+    @apply grid grid-cols-2 gap-12;
   }
 </style>

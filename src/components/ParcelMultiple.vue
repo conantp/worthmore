@@ -43,14 +43,15 @@ const multiple = ref(props.primaryParcel ? store.multipleLandValuePerAcre(props.
 
 <style scoped>
   #multiple{
-    @apply content-center grid grid-cols-10;
+    @apply sm:grid grid-cols-10 content-center;
   }
 
   .multiple-prefix{
-    @apply text-8xl font-bold col-span-1 text-center grid content-center;
+    @apply hidden;
+    @apply text-8xl font-bold col-span-1 text-center sm:grid content-center;
   }
   .multiple-inner{
-    @apply col-span-9;
+    @apply sm:col-span-9;
   }
   .multiple-figure{
     @apply text-6xl font-bold;

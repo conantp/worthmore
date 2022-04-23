@@ -4,8 +4,121 @@
 @tailwind utilities;
 
 
+
+
+
+
+@layer base {
+	html, body{
+		font-family:  Avenir Next;
+		font-weight:  400;
+	}
+
+	h1{
+		@apply font-bold;
+		@apply text-3xl;
+	}
+}
+
+
 @layer components {
+
+	.header{
+		@apply border-b-2 border-black mx-8 pt-4 pb-2;
+	}
+	.nav{
+		@apply max-w-4xl mx-auto;
+
+		/*@apply;*/
+		@apply text-center;
+
+		@apply sm:grid sm:gap-4 items-end;
+
+		.nav--left{
+			.logo{
+				@apply w-72;
+				@apply mx-auto sm:mx-0;
+				/*@apply pb-4 sm:pb-0;*/
+			}
+		}
+
+		.nav--links{
+			@apply hidden;
+			@apply sm:grid grid-flow-col auto-cols-auto gap-8 items-end justify-end;
+			@apply col-start-auto col-end-3;
+			/*@apply bg-red-500;*/
+			@apply text-right;
+			a{
+				@apply inline-block font-bold;
+			}
+
+			img{
+				@apply w-8 aspect-square;
+			}
+
+			.fb-icon{
+				@apply ml-8;
+			}
+
+			.nav-social{
+
+			}
+		}
+
+		
+	}
+
 	.page-section{
-		@apply max-w-4xl mx-auto ;
+	}
+
+	.page-section--inner{
+		@apply max-w-4xl mx-auto;
+		@apply px-8 py-8;
+		@apply text-center;
+
+		h2{
+			@apply inline-block;
+			@apply py-1;
+			@apply text-center text-2xl sm:text-4xl font-bold;
+			@apply border-black border-b-2;
+		}
+
+		.page-section--content{
+			@apply my-4;
+		}
+
+		
+	}
+
+	.page-section--split{
+		@apply grid grid-cols-3 gap-4;
+
+		h1, p{
+		    @apply text-left;
+		}
+
+		p{
+			@apply mt-4;
+		}
+
+		.page-section--left{
+			@apply col-span-2 ;
+			
+		}
+	}
+
+		
+
+		.page-section--right{
+			@apply grid content-center;
+			img{
+				@apply w-full;
+			}
+		}
+
+	
+
+	.other-topics{
+		@apply page-section;
 	}
 }
