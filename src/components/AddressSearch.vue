@@ -20,17 +20,75 @@ function getMarketValue(row){
   return row?.attributes.TotalMarketValue;
 }
 
-
 const url_prefix = "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1/query?where=StreetName%20%3D%20'";
 const url_suffix = "'&outFields=*&outSR=4326&f=json";
 
-function submitName() {
-  console.log(name.value)
-  console.log(url_prefix + name.value + url_suffix);
 
-  fetch(url_prefix + encodeURIComponent(name.value) + url_suffix)
+let pending_request = false;
+
+function submitName() {
+  // console.log(name.value)
+  // console.log(url_prefix + name.value + url_suffix);
+
+  let temp_name = name.value;
+  let temp_name_arr = temp_name.split(' ');
+
+  let search_house = false;
+
+  let search_name = temp_name;
+
+  let or_mode = false;
+  if(temp_name_arr.length == 1){
+    search_house = temp_name_arr[0];
+    search_name = temp_name_arr[0];
+    or_mode = true;
+  }
+
+  if(temp_name_arr.length > 1){
+    search_house = temp_name_arr[0];
+    search_name = temp_name_arr[1];
+  }
+
+  let search_full = '';
+  search_full += encodeURIComponent(search_name);
+
+  if(search_house){
+
+    if(or_mode){
+      search_full += "'%20OR%20";
+    }
+    else{
+      search_full += "'%20AND%20";
+    }
+
+    search_full += "HouseNumber%20%3D%20'";
+    search_full += search_house;
+    // search_full += "'";
+  }
+
+      const controller = new AbortController()
+    const signal = controller.signal
+
+    // if(pending_request){
+    // console.log(controller, signal);
+    //     controller.abort();
+
+    // }
+    pending_request = true;
+
+
+  console.log(search_house, search_name, search_full);
+  console.log(url_prefix + search_full + url_suffix);
+  fetch(url_prefix + search_full + url_suffix, {
+                method: 'get',
+                signal: signal,
+            })
     .then(r => r.json())
-    .then(res => data.value = res)
+    .then(res => {
+      data.value = res;
+          pending_request = false;
+
+    })
 }
 
 </script>
@@ -73,10 +131,10 @@ function submitName() {
             v-for="row in rows"
           >
               <a
-                :href="'/results/' + row.attributes.Address"
+                :href="'/results/' + row.attributes.PIN"
               >
               <div class='text-md'>
-                {{ row.attributes.Address }}
+                {{ store.fullAddress(row) }}
               </div>
             </a>
           </li>

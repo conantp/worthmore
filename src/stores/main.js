@@ -22,6 +22,9 @@ export const useMainStore = defineStore('main', {
   // state: () => ({ count: 0 })
 
   getters: {
+    fullAddress: (state) => {
+      return (parcel) => parcel.attributes.HouseNumber + " " + parcel.attributes.NumberSuffix + " " + parcel.attributes.StreetName + " " + parcel.attributes.StreetType; 
+    },
     appraisedValue: (state) => {
       return (parcel) => parcel.attributes.AppraisedValue
     },

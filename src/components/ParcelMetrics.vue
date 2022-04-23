@@ -34,7 +34,7 @@ const activeParcel = props.parcel
       v-if="activeParcel"
       class='parcel-address' 
     >
-      {{ activeParcel.attributes.Address }}
+      {{ store.fullAddress(activeParcel) }}
     </div>
     <!-- <div>
         ${{ dollarUSLocale.format(store.appraisedValue(activeParcel)) }}<br>

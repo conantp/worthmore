@@ -38,7 +38,9 @@ function getMarketValue(row){
 }
 
 
-const url_prefix = "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1/query?where=Address%20%3D%20'";
+const url_prefix = "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1/query?where=PIN%20%3D%20'";
+
+// const url_prefix = "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1/query?where=Address%20%3D%20'";
 const url_suffix = "'&outFields=*&outSR=4326&f=json";
 
 function getData(address) {
@@ -72,21 +74,25 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
 </script>
 
 <template>
+  
   <div id='results'
 
   >
-  <div
-    class='loading'
-    :class="{'loading_visible': (!(activeParcel && biltmoreParcel))}"
-  >
-    Loading...
-  </div>
-    <div class='results-inner'
-          v-show="activeParcel && biltmoreParcel"
+    
+    <div 
+      class='results-inner'
 
     >
+      <div
+        class='loading'
+        :class="{'loading_visible': (!(activeParcel && biltmoreParcel))}"
+      >
+        Loading...
+      </div>
+      <div class='results-top'
+      v-show="activeParcel && biltmoreParcel"
 
-      <div class='results-top'>
+      >
         <div class='property-grid'>
           <div class='property-primary'>
              <ParcelMetrics 
@@ -125,7 +131,7 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
 </template>
 
 <style scoped>
-  .results{
+  #results{
     min-height: 80vh;
   }
   .results-top{
