@@ -37,11 +37,11 @@ function submitName() {
 
 <template>
 
-  <div>
+<div>
     <input 
       type='text' 
       v-model="name"
-      @input="submitName"
+      @input.debounce="submitName"
       placeholder="Enter your address to find out" 
       class="
         w-full
@@ -56,68 +56,39 @@ function submitName() {
           shadow-md
         "
     />
-    <button v-show="isNamePresent" @click="submitName">Submit</button>
-  <div class='search-results--container'
-  v-if="rowCount"
-  >
+    <!-- <button v-show="isNamePresent" @click="submitName">Submit</button> -->
     <div 
-        class='search-results'
+      class='search-results--container'
+      v-if="rowCount"
     >
-      <div class='text-center p-2'>
-        {{ rowCount }} results
-      </div>
-      <ul
+      <div 
+          class='search-results'
       >
-        <li
-          class='m-2 p-2 border-slate-300 border-2 rounded-md'
-          v-for="row in rows"
-        >
-            <router-link 
-              :to="'/results/' + row.attributes.Address"
-            >
-            <div class='text-md'>
-              {{ row.attributes.Address }}
-            </div>
-          </router-link>
-        </li>
-      </ul>
+        <div class='text-slate-500 text-md text-left p-2 pb-0'>
+          Select from the list below:<br>
+        </div>
+        <ul>
+          <li
+            class='text-left p-2 py-4 border-black border-b font-bold'
+            v-for="row in rows"
+          >
+              <a
+                :href="'/results/' + row.attributes.Address"
+              >
+              <div class='text-md'>
+                {{ row.attributes.Address }}
+              </div>
+            </a>
+          </li>
+        </ul>
     </div>
   </div>
-  <div style='display: none;'>
-    <table>
-      <thead>
-        <tr>
-          <th 
-            v-for="(key,value) in header"
-          >
-            {{ key.name }}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="row in rows"
-        >
-          <td
-            v-for="field in row.attributes"
-          >
-            {{ field }}
-
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-
-  </div>
+</div>
   
 </template>
 
 <style scoped>
-  table,tr,td,th{
-    border:  1px solid black;
-  }
+
 a {
 
 }
@@ -131,10 +102,10 @@ li{
 }
 
 .search-results{
-  @apply absolute bg-white;
+  @apply absolute bg-white w-full;
+  /*@appy max-h-screen;*/
   max-height:  400px;
   overflow:  scroll;
-
 }
 
 </style>

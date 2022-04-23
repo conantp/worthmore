@@ -75,7 +75,12 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
   <div id='results'
 
   >
-
+  <div
+    class='loading'
+    :class="{'loading_visible': (!(activeParcel && biltmoreParcel))}"
+  >
+    Loading...
+  </div>
     <div class='results-inner'
           v-show="activeParcel && biltmoreParcel"
 

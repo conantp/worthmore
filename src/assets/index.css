@@ -10,18 +10,32 @@
 
 @layer base {
 	html, body{
+		@apply bg-primary;
 		font-family:  Avenir Next;
 		font-weight:  400;
 	}
 
 	h1{
 		@apply font-bold;
-		@apply text-3xl;
+		@apply text-2xl sm:text-3xl;
 	}
 }
 
 
 @layer components {
+	#app {
+	  /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
+	  /*-webkit-font-smoothing: antialiased;*/
+	  /*-moz-osx-font-smoothing: grayscale;*/
+	  /*text-align: center;*/
+	  /*color: #2c3e50;*/
+	}
+
+	#demo{
+	  @apply bg-primary;
+	  width:  100%;
+	  margin: 0 auto;
+	}
 
 	.header{
 		@apply border-b-2 border-black mx-8 pt-4 pb-2;
@@ -71,9 +85,10 @@
 	.page-section{
 	}
 
-	.page-section--inner{
+	
+	.page-section__inner{
 		@apply max-w-4xl mx-auto;
-		@apply px-8 py-8;
+		@apply p-4 sm:p-8;
 		@apply text-center;
 
 		h2{
@@ -83,33 +98,56 @@
 			@apply border-black border-b-2;
 		}
 
-		.page-section--content{
-			@apply my-4;
-		}
-
-		
+		.page-section__content{
+			@apply sm:my-4;
+		}	
 	}
+
+	.page-section--list{
+		.page-section__inner{
+			@apply p-0 pt-4 sm:pb-2;
+
+			.page-section__content{
+				@apply grid sm:gap-12;
+				@apply grid-flow-row sm:grid-cols-3;
+			}
+		}
+	}
+
+
 
 	.page-section--split{
-		@apply grid grid-cols-3 gap-4;
+		.page-section__inner{
+			@apply grid sm:grid-cols-3 gap-4;
 
-		h1, p{
-		    @apply text-left;
-		}
+			h1, p{
+			    @apply text-center sm:text-left;
+			}
 
-		p{
-			@apply mt-4;
-		}
+			p{
+				@apply mt-2;
+				@apply text-left;
+			}
 
-		.page-section--left{
-			@apply col-span-2 ;
-			
+			.page-section__left{
+				@apply sm:col-span-2 ;
+				
+			}
+
+			.page-section__right{
+				@apply order-first sm:order-last;
+
+				img{
+					@apply w-1/3 sm:w-full block mx-auto;
+				}
+				
+			}
 		}
 	}
 
 		
 
-		.page-section--right{
+		.page-section__right{
 			@apply grid content-center;
 			img{
 				@apply w-full;
@@ -120,5 +158,16 @@
 
 	.other-topics{
 		@apply page-section;
+	}
+
+	.loading{
+		@apply absolute bg-white w-full h-screen grid content-center text-center text-4xl font-bold;
+		@apply transition-all ease-in duration-300 ;
+		opacity: 0;
+		z-index:  -9999;
+	}
+
+	.loading_visible{
+		opacity: 1;
 	}
 }

@@ -33,15 +33,15 @@ let icon_url = computed(() => {
 
 <template>
   <div id='about'>
-    <div class='page-section'>
-      <div class='page-section--inner page-section--split'>
-        <div class='page-section--left'>
+    <div class='page-section page-section--split'>
+      <div class='page-section__inner'>
+        <div class='page-section__left'>
           <h1>{{ activePage.title }}</h1>
           <p>
             {{ activePage.content }}
           </p>
         </div>
-        <div class='page-section--right'>
+        <div class='page-section__right'>
           <img :src="icon_url" />
         </div>
       </div>

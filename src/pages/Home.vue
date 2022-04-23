@@ -47,12 +47,13 @@
 }
 
 .hero{
-	@apply text-2xl sm:text-4xl sm:w-1/2 font-bold;
+	@apply sm:w-1/2;
+	@apply text-2xl sm:text-4xl font-bold text-center sm:text-left;
 	@apply mb-6;
 }
 
 .home-top--inner{
-	@apply relative pb-6 sm:pb-12;
+	@apply sm:relative sm:pb-12;
 }
 
 .home-top{
@@ -65,11 +66,12 @@
 }
 
 .house{
-	@apply hidden;
-	@apply sm:block;
+	/*@apply hidden;*/
+	/*@apply sm:block;*/
 
-	@apply absolute bottom-0 right-0 w-1/2;
-	z-index: 0;
+	@apply sm:absolute bottom-0 right-0 sm:w-1/2;
+
+	@apply mt-4 sm:mt-0;
 }
 
 img{

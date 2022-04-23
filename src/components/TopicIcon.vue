@@ -30,12 +30,17 @@ let icon_url = computed(() => {
 
 <style scoped>
   .topic-icon{
-    text-align: center;
+    @apply border-black border-b sm:border-none;
+  }
+
+  a{
+    @apply flex sm:block items-center;
   }
   img{
-    @apply p-4 max-h-48 mx-auto;
+    @apply flex-initial p-4 max-h-24 sm:max-h-48 aspect-square mx-auto;
+    /*@apply p-4 max-h-24 sm:max-h-48 mx-auto;*/
   }
   h3{
-    @apply font-bold;
+    @apply text-left sm:text-center flex-grow font-bold;
   }
 </style>
