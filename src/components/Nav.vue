@@ -2,8 +2,8 @@
 
 import Logo from '../assets/images/logo.png'
 
-import SocialFB from '../assets/images/social--facebook.png'
-import SocialTwitter from '../assets/images/social--twitter.png'
+import ShareFB from '../components/ShareFB.vue'
+import ShareTwitter from '../components/ShareTwitter.vue'
 
 </script>
 
@@ -21,19 +21,10 @@ import SocialTwitter from '../assets/images/social--twitter.png'
       </router-link>
     </div>
     <div class='nav--links'>
-      <router-link to="/about">Why this matters</router-link>
-      <router-link to="/about">Our Story</router-link>
-          <a href='#'>
-            <img
-               :src="SocialFB" 
-               class='fb-icon'
-              />
-          </a>
-          <a href='#'>
-            <img
-               :src="SocialTwitter" 
-              />
-          </a>
+      <router-link to="/#why-this-matters">Why this Matters</router-link>
+      <router-link to="/about">About</router-link>
+      <ShareFB />
+      <ShareTwitter />
     </div>
   </div>
 </template>

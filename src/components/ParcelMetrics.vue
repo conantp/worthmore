@@ -61,11 +61,11 @@ const activeParcel = props.parcel
   }
  
     .outer > div{
-      @apply text-lg border-black border-b-4 p-4 text-center;
+      @apply text-sm sm:text-lg border-black border-b-4 p-4 text-center;
     }
 
    .outer .parcel-address{
-    @apply text-xl font-bold;
+    @apply text-sm sm:text-xl font-bold text-ellipsis truncate;
   }
 
   .outer .last{

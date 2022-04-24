@@ -17,12 +17,11 @@ let dollarUSLocale = Intl.NumberFormat('en-US');
 
 const activeResultsLink = computed(() => '/results/' + encodeURIComponent(activeParcel.attributes.Address) )
 
-  import ResultsTop from '../assets/images/results-top.png'
-  import ShareResults from '../assets/images/share-results.png'
-  import ShareResultsSocial from '../assets/images/share-results-social.png'
 
 import WhyThisMatters from '../sections/WhyThisMatters.vue'
 import FooterSearch from '../sections/FooterSearch.vue'
+
+  import ShareSection from '../sections/Share.vue'
 
 
 const data = ref(null)
@@ -68,6 +67,7 @@ function getBiltmore(address) {
 getBiltmore("963794403000000");
 const biltmoreParcel = computed(() => (biltmoreData.value ? biltmoreData.value.features[0] : '') )
 
+// https://prc-buncombe.spatialest.com/api/v1/recordcard/963794403000000
 
 const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(activeParcel, biltmoreParcel) : '' ) 
 
@@ -117,13 +117,11 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
           />
       </div>
 
-      <!-- <img 
-        :src="ResultsTop"
-      /> -->
-      <img 
-        :src="ShareResults"
-      />
- 
+      <ShareSection 
+          v-if="activeParcel && biltmoreParcel"
+          :primaryParcel="activeParcel"
+          :compareParcel="biltmoreParcel"
+      /> 
       <WhyThisMatters />
       <FooterSearch />
     </div>

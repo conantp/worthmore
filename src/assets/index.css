@@ -82,6 +82,18 @@
 		
 	}
 
+	.footer{
+	    @apply bg-white py-4 sm:py-8;
+
+		.nav{
+			@apply items-center;
+		}
+
+		.nav .nav--links{
+			@apply items-center justify-center;
+		}
+	}
+
 	.page-section{
 	}
 

@@ -13,7 +13,11 @@ const links = computed(() => {
 <template>
   <div class='page-section page-section--list why-this-matters'>
     <div class='page-section__inner'>
-      <h2>Why This Matters</h2>
+      <h2>
+        <a name='why-this-matters'>
+          Why This Matters
+        </a>
+      </h2>
 
       <div class='page-section__content'>
           <TopicIcon 

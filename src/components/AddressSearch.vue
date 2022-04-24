@@ -13,12 +13,10 @@ const header = computed(() => (data.value ? data.value.fields : '') )
 const rows = computed(() => (data.value ? data.value.features.sort() : '') )
 const rowCount = computed(() => (data.value ? data.value.features.length : 0) )
 
-function getMarketValue(row){
-  if(! row){
-    return 0;
-  }
-  return row?.attributes.TotalMarketValue;
-}
+
+import { request } from "@esri/arcgis-rest-request";
+import { queryFeatures } from "@esri/arcgis-rest-feature-service";
+
 
 const url_prefix = "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1/query?where=StreetName%20%3D%20'";
 const url_suffix = "'&outFields=*&outSR=4326&f=json";
@@ -26,10 +24,9 @@ const url_suffix = "'&outFields=*&outSR=4326&f=json";
 
 let pending_request = false;
 
-function submitName() {
-  // console.log(name.value)
-  // console.log(url_prefix + name.value + url_suffix);
 
+
+function submitName() {
   let temp_name = name.value;
   let temp_name_arr = temp_name.split(' ');
 
@@ -50,44 +47,46 @@ function submitName() {
   }
 
   let search_full = '';
-  search_full += encodeURIComponent(search_name);
 
+  search_full += `StreetName LIKE '${search_name}%'`
   if(search_house){
 
     if(or_mode){
-      search_full += "'%20OR%20";
+      search_full += " OR ";
     }
     else{
-      search_full += "'%20AND%20";
+      search_full += " AND ";
     }
 
-    search_full += "HouseNumber%20%3D%20'";
-    search_full += search_house;
-    // search_full += "'";
+    search_full += ` HouseNumber LIKE '%${search_house}%' `;
   }
 
-      const controller = new AbortController()
-    const signal = controller.signal
+  const controller = new AbortController()
+  const signal = controller.signal
 
-    // if(pending_request){
-    // console.log(controller, signal);
-    //     controller.abort();
+  // if(pending_request){
+  // console.log(controller, signal);
+  //     controller.abort();
 
-    // }
-    pending_request = true;
+  // }
+  pending_request = true;
 
 
   console.log(search_house, search_name, search_full);
-  console.log(url_prefix + search_full + url_suffix);
-  fetch(url_prefix + search_full + url_suffix, {
-                method: 'get',
-                signal: signal,
-            })
-    .then(r => r.json())
+  // console.log(url_prefix + search_full + url_suffix);
+
+  const url =
+    "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1";
+
+  const options = {
+    url: "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1",
+    where: search_full
+  };
+
+  queryFeatures(options)
     .then(res => {
       data.value = res;
-          pending_request = false;
-
+      pending_request = false;
     })
 }
 
@@ -102,11 +101,12 @@ function submitName() {
       @input.debounce="submitName"
       placeholder="Enter your address to find out" 
       class="
-        w-full
-        block
-        border-4
-        border-black
-        border-round
+        search-input
+          w-full
+          block
+          border-4
+          border-black
+          border-round
           py-2
           px-4
           font-semibold
@@ -155,15 +155,26 @@ li{
   cursor:  pointer;
 }
 
+.search-input{
+  @apply z-10 relative ;
+}
+
 .search-results--container{
   @apply relative;
 }
 
 .search-results{
-  @apply absolute bg-white w-full;
+  @apply absolute -top-1  bg-white w-full;
+      @apply border-black border-2 border-t-0;
+
   /*@appy max-h-screen;*/
   max-height:  400px;
   overflow:  scroll;
+
+  ul{
+
+
+  }
 }
 
 </style>

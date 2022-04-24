@@ -2,6 +2,14 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import { createRouter, createWebHistory } from 'vue-router'
+import VueClipboard from 'vue3-clipboard'
+ 
+ 
+import VueTippy from 'vue-tippy'
+// or
+// import { plugin as VueTippy } from 'vue-tippy'
+import 'tippy.js/dist/tippy.css' // optional for styling
+
 
 
 
@@ -46,9 +54,38 @@ const router = createRouter({
   },
 })
 
+// import {useToast, ToastPlugin} from "vue-toast-notification";
 
+
+import VueToast from 'vue-toast-notification';
+// Import one of the available themes
+//import 'vue-toast-notification/dist/theme-default.css';
+import 'vue-toast-notification/dist/theme-sugar.css';
+
+
+app.use(VueToast)
 
 app.use(createPinia())
 app.use(router)
+// app.use(VueClipboard)
+app.use(VueClipboard, {
+  autoSetContainer: true,
+  appendToBody: true,
+})
+
+app.use(
+  VueTippy,
+  // optional
+  {
+    directive: 'tippy', // => v-tippy
+    component: 'tippy', // => <tippy/>
+    componentSingleton: 'tippy-singleton', // => <tippy-singleton/>,
+    defaultProps: {
+      placement: 'auto-end',
+      allowHTML: true,
+    }, // => Global default options * see all props
+  }
+)
+
 
 app.mount('#app')
