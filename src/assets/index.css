@@ -71,7 +71,10 @@
 			}
 
 			.fb-icon{
-				@apply ml-8;
+				@apply ml-8 mr-0;
+			}
+			.twitter-icon{
+				@apply mx-0;
 			}
 
 			.nav-social{
