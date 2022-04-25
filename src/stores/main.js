@@ -54,7 +54,15 @@ export const useMainStore = defineStore('main', {
       return (parcel) => Math.round(state.landValue(parcel) / state.acrerage(parcel) )
     },
     multipleLandValuePerAcre: (state) => {
-      return (primaryParcel, compareParcel) => Math.round(state.landValuePerAcre(primaryParcel) / state.landValuePerAcre(compareParcel) )
+      return (primaryParcel, compareParcel) => {
+        const multiple = state.landValuePerAcre(primaryParcel) / state.landValuePerAcre(compareParcel);
+
+        if(multiple < 1){
+          return multiple.toFixed(2);
+        }
+        
+        return Math.round(multiple )
+      }
     },
 
     activeAppraisedValue: (state) => state.activeRow.attributes.AppraisedValue,
