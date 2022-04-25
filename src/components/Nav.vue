@@ -2,7 +2,7 @@
 
 import Logo from '../assets/images/logo.png'
 
-import ShareFB from '../components/ShareFB.vue'
+import ShareFBNav from '../components/ShareFBNav.vue'
 import ShareTwitter from '../components/ShareTwitter.vue'
 
 </script>
@@ -23,7 +23,7 @@ import ShareTwitter from '../components/ShareTwitter.vue'
     <div class='nav--links'>
       <router-link to="/#why-this-matters">Why this Matters</router-link>
       <router-link to="/about">About</router-link>
-      <ShareFB />
+      <ShareFBNav />
       <ShareTwitter />
     </div>
   </div>
