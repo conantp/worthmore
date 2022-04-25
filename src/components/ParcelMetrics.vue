@@ -45,7 +45,9 @@ const appraised_land_value_container = ref()
       v-if="activeParcel"
       class='parcel-address' 
     > 
-      <span v-if="store.fullAddress(activeParcel) == '203 DAIRY RD'">Biltmore Estate (Land)</span>
+      <span v-if="activeParcel.attributes.PIN == '963794403000000'">
+        Biltmore Estate (Land)
+      </span>
       <span v-else>
         {{ store.fullAddress(activeParcel) }}
       </span>
