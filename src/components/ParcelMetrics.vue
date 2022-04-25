@@ -44,8 +44,11 @@ useTippy(appraised_land_value_container, {
     <div
       v-if="activeParcel"
       class='parcel-address' 
-    >
-      {{ store.fullAddress(activeParcel) }}
+    > 
+      <span v-if="store.fullAddress(activeParcel) == '203 DAIRY RD'">Biltmore Estate (Land)</span>
+      <span v-else>
+        {{ store.fullAddress(activeParcel) }}
+      </span>
     </div>
     <!-- <div>
         ${{ dollarUSLocale.format(store.appraisedValue(activeParcel)) }}<br>

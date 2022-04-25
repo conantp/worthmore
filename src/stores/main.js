@@ -45,7 +45,7 @@ export const useMainStore = defineStore('main', {
       return (parcel) => parcel.attributes.AppraisedValue
     },
     landValue: (state) => {
-      return (parcel) => parcel.attributes.LandValue
+      return (parcel) => (parcel.attributes.TotalMarketValue - parcel.attributes.AppraisedValue) + parcel.attributes.LandValue
     },
     acrerage: (state) => {
       return (parcel) => parcel.attributes.Acreage
@@ -60,7 +60,7 @@ export const useMainStore = defineStore('main', {
         if(multiple < 1){
           return multiple.toFixed(2);
         }
-        
+
         return Math.round(multiple )
       }
     },
