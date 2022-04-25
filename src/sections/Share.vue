@@ -27,7 +27,7 @@ const multiple = ref(props.primaryParcel ? store.multipleLandValuePerAcre(props.
 let share_text = computed(() => {
   let temp = `My property is *${multiple.value}X* more valuable than the Biltmore per acre! 💰 ` + 
     `Is it #Worthmore or just #Taxedmore? 🧐 Look up your address ` +
-    `using this tool here: https://worthmore.netlify.app`;
+    `using this tool here: https://worthmoreproject.com`;
   return temp;
 })
 
