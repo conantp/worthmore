@@ -10,6 +10,7 @@
   "dependencies": {
     "@esri/arcgis-rest-feature-service": "^4.0.2",
     "@esri/arcgis-rest-request": "^4.0.1",
+    "lodash": "^4.17.21",
     "pinia": "^2.0.13",
     "vue": "^3.2.25",
     "vue-router": "^4.0.14",

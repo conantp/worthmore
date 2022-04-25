@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { useMainStore } from '../stores/main.js'
 import { request } from "@esri/arcgis-rest-request";
 import { queryFeatures } from "@esri/arcgis-rest-feature-service";
+import _ from 'lodash'
 
 import SearchResultRow from '../components/SearchResultRow.vue';
 
@@ -18,7 +19,8 @@ const rowCount = computed(() => (data.value ? data.value.features.length : 0) )
 
 let pending_request = false;
 
-function submitName() {
+
+const submitName = _.debounce(() => {  
   let temp_name = name.value;
   let temp_name_arr = temp_name.split(' ');
 
@@ -72,10 +74,13 @@ function submitName() {
 
   queryFeatures(options)
     .then(res => {
+      console.log("RESULTS", res);
+      console.log(name.value);
       data.value = res;
       pending_request = false;
     })
-}
+}, 100);
+
 
 </script>
 
