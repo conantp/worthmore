@@ -129,8 +129,9 @@ useTippy(btn, {
     @apply text-left;
   }
   .share-button{
-       @apply inline-block bg-white p-4 border-black border-4 rounded-xl font-bold;
-      }
+    @apply block text-center mt-2;
+    @apply sm:inline-block bg-white p-4 border-black border-4 rounded-xl font-bold;
+  }
 
   h3{
     @apply font-bold text-2xl sm:text-left;
