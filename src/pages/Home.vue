@@ -5,7 +5,7 @@
 	import AddressSearch from '../components/AddressSearch.vue';
 	import WhyThisMatters from '../sections/WhyThisMatters.vue'
 
-	import OurStory from '../assets/images/our-story.png'
+	import OurStory from '../sections/OurStory.vue'
 </script>
 
 <template>
@@ -28,11 +28,9 @@
 		  </div>
 		  <div class='why-this-matters'>
 	      <WhyThisMatters />
-
 	    </div>
-    	<img 
-	    	:src="OurStory"
-    	/>
+      <OurStory />
+    	
   </div>
 </template>
 
