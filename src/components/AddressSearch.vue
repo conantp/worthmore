@@ -52,7 +52,7 @@ const submitName = _.debounce(() => {
       search_full += " AND ";
     }
 
-    search_full += ` HouseNumber LIKE '%${search_house}%' `;
+    search_full += ` HouseNumber = '${search_house}' `;
   }
 
   const controller = new AbortController()

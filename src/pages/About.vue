@@ -29,6 +29,8 @@ let icon_url = computed(() => {
 
   return '/images/' + activeIcon.icon + '.png';
 })
+
+import content from '../data/test.html?raw'
 </script>
 
 <template>
@@ -37,9 +39,9 @@ let icon_url = computed(() => {
       <div class='page-section__inner'>
         <div class='page-section__left'>
           <h1>{{ activePage.title }}</h1>
-          <p>
-            {{ activePage.content }}
-          </p>
+          <div class='page-content' v-html="content">
+
+          </div>
         </div>
         <div class='page-section__right'>
           <img :src="icon_url" />
@@ -55,6 +57,6 @@ let icon_url = computed(() => {
 </template>
 
 <style scoped>
-  
+
 
 </style>
