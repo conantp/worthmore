@@ -86,7 +86,7 @@ useTippy(btn, {
 </script>
 
 <template>
-  <div class='page-section share-section'>
+  <div class='page-section page-section--top share-section'>
     <div class='page-section__inner'>
       <h3>Share Your Results:</h3>
       <div class='share__content'>

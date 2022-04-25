@@ -78,21 +78,17 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
   <div id='results'
 
   >
-    
-    <div 
-      class='results-inner'
+    <div
+      class='loading'
+      :class="{'loading_visible': (!(activeParcel && biltmoreParcel))}"
+    >
+      Loading...
+    </div>
+    <div class='page-section page-section--top results-top'
+    v-show="activeParcel && biltmoreParcel"
 
     >
-      <div
-        class='loading'
-        :class="{'loading_visible': (!(activeParcel && biltmoreParcel))}"
-      >
-        Loading...
-      </div>
-      <div class='results-top'
-      v-show="activeParcel && biltmoreParcel"
-
-      >
+      <div class='page-section__inner'>
         <div class='property-grid'>
           <div class='property-primary'>
              <ParcelMetrics 
@@ -116,15 +112,15 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
             :compareParcel="biltmoreParcel"
           />
       </div>
-
-      <ShareSection 
-          v-if="activeParcel && biltmoreParcel"
-          :primaryParcel="activeParcel"
-          :compareParcel="biltmoreParcel"
-      /> 
-      <WhyThisMatters />
-      <FooterSearch />
     </div>
+
+    <ShareSection 
+        v-if="activeParcel && biltmoreParcel"
+        :primaryParcel="activeParcel"
+        :compareParcel="biltmoreParcel"
+    /> 
+    <WhyThisMatters />
+    <FooterSearch />
   </div>
 </template>
 
@@ -133,10 +129,15 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
     min-height: 80vh;
   }
   .results-top{
-    @apply max-w-4xl mx-auto grid sm:grid-cols-3 sm:gap-2
+    @apply pb-0;
   }
+
+  .results-top .page-section__inner{
+    @apply grid sm:grid-cols-3 sm:gap-2
+  }
+
   .property-grid{
-    @apply bg-white m-4 sm:col-span-2 grid grid-cols-2 border-4 border-black rounded-xl;
+    @apply bg-white sm:col-span-2 grid grid-cols-2 border-4 border-black rounded-xl;
   }
 
   .property-primary{

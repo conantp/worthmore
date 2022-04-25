@@ -37,11 +37,15 @@
 	  margin: 0 auto;
 	}
 
-	.header{
-		@apply border-b-2 border-black mx-8 pt-4 pb-2;
+	.header, .footer{
+		@apply px-4 sm:px-8;
 	}
+
 	.nav{
 		@apply max-w-4xl mx-auto;
+		@apply pt-4 pb-2;
+		@apply border-b-2 border-black;
+
 
 		/*@apply;*/
 		@apply text-center;
@@ -67,7 +71,7 @@
 			}
 
 			img{
-				@apply w-8 aspect-square;
+				@apply mx-4 block w-8 aspect-square;
 			}
 
 			.fb-icon{
@@ -86,9 +90,11 @@
 	}
 
 	.footer{
-	    @apply bg-white py-4 sm:py-8;
+	    @apply bg-white py-4;
 
 		.nav{
+			@apply border-b-0;
+
 			@apply items-center;
 		}
 
@@ -98,12 +104,16 @@
 	}
 
 	.page-section{
+		@apply px-4 sm:px-8;
+	}
+
+	.page-section--top{
+		@apply py-4 sm:py-8;		
 	}
 
 	
 	.page-section__inner{
 		@apply max-w-4xl mx-auto;
-		@apply p-4 sm:p-8;
 		@apply text-center;
 
 		h2{

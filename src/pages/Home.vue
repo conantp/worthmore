@@ -10,9 +10,8 @@
 
 <template>
   <div id='home'>
-  	<div class='home-inner'>
-  		<div class='home-top'>
-  			<div class='home-top--inner'>
+  		<div class='page-section home-top'>
+	      <div class='page-section__inner home-top--inner'>
 			    <p class='hero'> 
 			    	Is your land worth
 						more than the Biltmore?<br>
@@ -27,13 +26,10 @@
 		    	/>
 			  </div>
 		  </div>
-	    
-	  </div>
+		  <div class='why-this-matters'>
+	      <WhyThisMatters />
 
-	  <div class='why-this-matters'>
-      <WhyThisMatters />
-
-    </div>
+	    </div>
     	<img 
 	    	:src="OurStory"
     	/>
@@ -43,25 +39,25 @@
 <style scoped>
 
 #home{
-	@apply sm:py-12;
 }
 
 .hero{
 	@apply sm:w-1/2;
-	@apply text-2xl sm:text-4xl font-bold text-center sm:text-left;
+	@apply  text-2xl sm:text-4xl font-bold text-center sm:text-left;
 	@apply mb-6;
 }
 
 .home-top--inner{
-	@apply sm:relative sm:pb-12;
+	@apply sm:relative sm:pb-24;
 }
 
 .home-top{
-	@apply px-8 pt-8 max-w-4xl mx-auto ;
+	@apply pt-4 sm:pt-8 pb-0;
 }
 
+
 .address-search{
-	@apply sm:w-1/3;
+	@apply sm:w-2/5;
 	z-index: 99999;
 }
 

@@ -33,7 +33,7 @@ let icon_url = computed(() => {
 
 <template>
   <div id='about'>
-    <div class='page-section page-section--split'>
+    <div class='page-section page-section--top page-section--split'>
       <div class='page-section__inner'>
         <div class='page-section__left'>
           <h1>{{ activePage.title }}</h1>
