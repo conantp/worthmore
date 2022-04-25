@@ -43,6 +43,7 @@ let icon_url = computed(() => {
      img{
         @apply w-1/2 mx-auto sm:w-full;
         @apply border-black border-4;
+        @apply bg-white;
     }
   }
 
