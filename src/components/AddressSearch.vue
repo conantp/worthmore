@@ -1,6 +1,10 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useMainStore } from '../stores/main.js'
+import { request } from "@esri/arcgis-rest-request";
+import { queryFeatures } from "@esri/arcgis-rest-feature-service";
+
+import SearchResultRow from '../components/SearchResultRow.vue';
 
 const store = useMainStore();
 
@@ -9,22 +13,10 @@ const data = ref(null)
 const name = ref('')
 const isNamePresent = computed(() => name.value.length > 0)
 
-const header = computed(() => (data.value ? data.value.fields : '') )
 const rows = computed(() => (data.value ? data.value.features.sort() : '') )
 const rowCount = computed(() => (data.value ? data.value.features.length : 0) )
 
-
-import { request } from "@esri/arcgis-rest-request";
-import { queryFeatures } from "@esri/arcgis-rest-feature-service";
-
-
-const url_prefix = "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1/query?where=StreetName%20%3D%20'";
-const url_suffix = "'&outFields=*&outSR=4326&f=json";
-
-
 let pending_request = false;
-
-
 
 function submitName() {
   let temp_name = name.value;
@@ -71,12 +63,7 @@ function submitName() {
   // }
   pending_request = true;
 
-
-  console.log(search_house, search_name, search_full);
-  // console.log(url_prefix + search_full + url_suffix);
-
-  const url =
-    "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1";
+  // console.log(search_house, search_name, search_full);
 
   const options = {
     url: "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1",
@@ -101,17 +88,8 @@ function submitName() {
       @input.debounce="submitName"
       placeholder="Enter your address to find out" 
       class="
-        search-input
-          w-full
-          block
-          border-4
-          border-black
-          border-round
-          py-2
-          px-4
-          font-semibold
-          rounded-lg
-          shadow-md
+          search-input
+          
         "
     />
     <!-- <button v-show="isNamePresent" @click="submitName">Submit</button> -->
@@ -126,18 +104,10 @@ function submitName() {
           Select from the list below:<br>
         </div>
         <ul>
-          <li
-            class='text-left p-2 py-4 border-black border-b font-bold'
+          <SearchResultRow
             v-for="row in rows"
-          >
-              <a
-                :href="'/results/' + row.attributes.PIN"
-              >
-              <div class='text-md'>
-                {{ store.fullAddress(row) }}
-              </div>
-            </a>
-          </li>
+            :row="row"
+          />
         </ul>
     </div>
   </div>
@@ -147,15 +117,11 @@ function submitName() {
 
 <style scoped>
 
-a {
-
-}
-
-li{
-  cursor:  pointer;
-}
-
 .search-input{
+  @apply w-full block;
+  @apply border-4 border-black;
+  @apply py-2 px-4;
+  @apply font-semibold rounded-lg;
   @apply z-10 relative ;
 }
 
@@ -165,16 +131,11 @@ li{
 
 .search-results{
   @apply absolute -top-1  bg-white w-full;
-      @apply border-black border-2 border-t-0;
+  @apply border-black border-2 border-t-0;
 
   /*@appy max-h-screen;*/
   max-height:  400px;
   overflow:  scroll;
-
-  ul{
-
-
-  }
 }
 
 </style>

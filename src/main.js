@@ -38,6 +38,7 @@ const routes = [
   { path: '/about2', component: About },
   { path: '/share', component: Share },
   { path: '/results/:address', component: Results },
+  { path: '/results/:address/:addressURL', component: Results },
 
 ]
 

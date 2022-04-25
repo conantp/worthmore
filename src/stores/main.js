@@ -25,6 +25,22 @@ export const useMainStore = defineStore('main', {
     fullAddress: (state) => {
       return (parcel) => parcel.attributes.HouseNumber + " " + parcel.attributes.NumberSuffix + " " + parcel.attributes.StreetName + " " + parcel.attributes.StreetType; 
     },
+    searchResultsLink: (state) => {
+      return (parcel) => {
+        var full_address_text = parcel.attributes.HouseNumber;
+        
+        if(parcel.attributes.NumberSuffix){
+          full_address_text += "-" + parcel.attributes.NumberSuffix;
+        }
+
+        full_address_text += "-";
+        full_address_text += parcel.attributes.StreetName;
+        full_address_text += "-";
+        full_address_text += parcel.attributes.StreetType;
+
+        return  '/results/' + parcel.attributes.PIN + "/" + encodeURIComponent(full_address_text); 
+      }
+    },
     appraisedValue: (state) => {
       return (parcel) => parcel.attributes.AppraisedValue
     },

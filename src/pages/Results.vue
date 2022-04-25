@@ -15,7 +15,6 @@ const store = useMainStore();
 let dollarUSLocale = Intl.NumberFormat('en-US');
 
 
-const activeResultsLink = computed(() => '/results/' + encodeURIComponent(activeParcel.attributes.Address) )
 
 
 import WhyThisMatters from '../sections/WhyThisMatters.vue'
