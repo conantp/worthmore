@@ -37,6 +37,12 @@
             "icon": "topic-icon--search",
             "link" : "/about",
             "enabled": true
+        },
+        {
+            "title": "Contact Us",
+            "icon": "topic-icon--search",
+            "link" : "/contact",
+            "enabled": true
         }
     ],
     "our-story": [

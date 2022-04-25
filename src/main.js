@@ -25,8 +25,8 @@ const app = createApp(App)
 // These can be imported from other files
 import Home from './pages/Home.vue'
 import Page from './pages/Page.vue'
-import Share from './pages/Share.vue'
 import Results from './pages/Results.vue'
+import Contact from './pages/Contact.vue'
 
 // 2. Define some routes
 // Each route should map to a component.
@@ -34,6 +34,7 @@ import Results from './pages/Results.vue'
 const routes = [
   { path: '/', component: Home },
   { path: '/about', component: Page },
+  { path: '/contact', component: Contact },
   { path: '/how-is-property-assessed-in-north-carolina', component: Page },
   { path: '/are-property-taxes-equitable', component: Page },
   { path: '/results/:address', component: Results },

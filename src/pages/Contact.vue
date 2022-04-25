@@ -2,6 +2,8 @@
 import { ref, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
+import OurStory from '../sections/OurStory.vue'
+
 import OtherTopics from '../sections/OtherTopics.vue'
 import FooterSearch from '../sections/FooterSearch.vue'
 
@@ -17,13 +19,13 @@ const links = computed(() => {
 })
 
 let activePage = computed(() => {
-  return siteContentData['why-this-matters-links'].find(function(item) {
+  return siteContentData['pages'].find(function(item) {
     return (item.link == route.path);
   });
 })
 
 let icon_url = computed(() => {
-  const activeIcon = siteContentData['why-this-matters-links'].find(function(item) {
+  const activeIcon = siteContentData['pages'].find(function(item) {
     return (item.link == route.path);
   });
 
@@ -31,22 +33,14 @@ let icon_url = computed(() => {
 })
 
 let contentHTML = computed(() => {
-  const activeContent = siteContentData['why-this-matters-links'].find(function(item) {
+  const activeContent = siteContentData['pages'].find(function(item) {
     return (item.link == route.path);
   });
 
-  if(route.path == '/how-is-property-assessed-in-north-carolina'){
-    return content_how;
-  }
-  return '';
-
+  return content_about;
 })
 
-import content_how from '../data/how-is-property-assessed-in-north-carolina.html?raw'
-import content_about from '../data/how-is-property-assessed-in-north-carolina.html?raw'
-import content_contact from '../data/how-is-property-assessed-in-north-carolina.html?raw'
-
-
+import content_about from '../data/contact.html?raw'
 
 </script>
 
@@ -56,26 +50,13 @@ import content_contact from '../data/how-is-property-assessed-in-north-carolina.
       <div class='page-section__inner'>
         <div class='page-section__left'>
           <h1>{{ activePage.title }}</h1>
-            <img 
-              class='page-icon'
-              :src="icon_url" 
-            />
+            
             <div class='page-content' v-html="contentHTML">
             </div>
         </div>
       </div>
     </div>
-   <!--  <div class='page-section'>
-      <div class='page-section__inner'>
-            <div class='page-content' v-html="content">
-
-          </div>
-        </div>
-    </div> -->
-    <OtherTopics 
-      title="Other Topics"
-      :links="links"
-    />
+    <OurStory />
     <FooterSearch />
   </div>
 </template>

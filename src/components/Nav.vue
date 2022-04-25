@@ -21,8 +21,8 @@ import ShareTwitterNav from '../components/ShareTwitterNav.vue'
       </router-link>
     </div>
     <div class='nav--links'>
-      <router-link to="/#why-this-matters">Why this Matters</router-link>
       <router-link to="/about">About</router-link>
+      <router-link to="/contact">Contact</router-link>
       <ShareFBNav />
       <!-- <ShareTwitterNav /> -->
     </div>
