@@ -24,7 +24,7 @@ const app = createApp(App)
 // 1. Define route components.
 // These can be imported from other files
 import Home from './pages/Home.vue'
-import About from './pages/About.vue'
+import Page from './pages/Page.vue'
 import Share from './pages/Share.vue'
 import Results from './pages/Results.vue'
 
@@ -33,10 +33,9 @@ import Results from './pages/Results.vue'
 // We'll talk about nested routes later.
 const routes = [
   { path: '/', component: Home },
-  { path: '/about', component: About },
-  { path: '/about1', component: About },
-  { path: '/about2', component: About },
-  { path: '/share', component: Share },
+  { path: '/about', component: Page },
+  { path: '/how-is-property-assessed-in-north-carolina', component: Page },
+  { path: '/are-property-taxes-equitable', component: Page },
   { path: '/results/:address', component: Results },
   { path: '/results/:address/:addressURL', component: Results },
 

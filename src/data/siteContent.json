@@ -1,40 +1,57 @@
 {
     "why-this-matters-links": [
         {
-            "title": "How is Property Assessed in North Carolina?",
+            "title": "How is property assessed in North Carolina? Who assesses it?",
             "icon": "topic-icon--state",
-            "link" : "/about",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In justo nulla, tempus quis bibendum vitae, porta sed ligula. Nunc ut ante vulputate sem imperdiet facilisis et nec leo. Curabitur pharetra elementum erat, eu volutpat dui facilisis non. Curabitur porttitor bibendum sem, sit amet dignissim sem lacinia in. Nulla cursus dapibus sapien, at egestas urna. Duis at vestibulum sapien. Nullam sagittis, magna vel cursus porta, arcu mi suscipit massa, vitae placerat velit tortor vitae lorem. Aliquam elit lacus, luctus at dapibus id, pretium nec mi. Integer congue erat quam, eget egestas dolor eleifend ut. Etiam eu pulvinar diam. Duis efficitur magna et dui feugiat accumsan. Curabitur ligula nisl, lacinia at dictum ut, imperdiet vel magna. Integer sed tempor lectus. Integer facilisis fermentum rhoncus.",
+            "link" : "/how-is-property-assessed-in-north-carolina",
             "enabled": true
         },
         {
-            "title": "Who Assesses property in North Carolina?",
-            "icon": "topic-icon--search",
-            "link" : "/about1",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In justo nulla, tempus quis bibendum vitae, porta sed ligula. Nunc ut ante vulputate sem imperdiet facilisis et nec leo. Curabitur pharetra elementum erat, eu volutpat dui facilisis non. Curabitur porttitor bibendum sem, sit amet dignissim sem lacinia in. Nulla cursus dapibus sapien, at egestas urna. Duis at vestibulum sapien. Nullam sagittis, magna vel cursus porta, arcu mi suscipit massa, vitae placerat velit tortor vitae lorem. Aliquam elit lacus, luctus at dapibus id, pretium nec mi. Integer congue erat quam, eget egestas dolor eleifend ut. Etiam eu pulvinar diam. Duis efficitur magna et dui feugiat accumsan. Curabitur ligula nisl, lacinia at dictum ut, imperdiet vel magna. Integer sed tempor lectus. Integer facilisis fermentum rhoncus.",
-            "enabled": true
-        },
-        {
-            "title": "Are property taxes fair?",
+            "title": "Are property taxes equitable? Does systemic racism affect how much tax you pay?",
             "icon": "topic-icon--scales",
-            "link" : "/about2",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In justo nulla, tempus quis bibendum vitae, porta sed ligula. Nunc ut ante vulputate sem imperdiet facilisis et nec leo. Curabitur pharetra elementum erat, eu volutpat dui facilisis non. Curabitur porttitor bibendum sem, sit amet dignissim sem lacinia in. Nulla cursus dapibus sapien, at egestas urna. Duis at vestibulum sapien. Nullam sagittis, magna vel cursus porta, arcu mi suscipit massa, vitae placerat velit tortor vitae lorem. Aliquam elit lacus, luctus at dapibus id, pretium nec mi. Integer congue erat quam, eget egestas dolor eleifend ut. Etiam eu pulvinar diam. Duis efficitur magna et dui feugiat accumsan. Curabitur ligula nisl, lacinia at dictum ut, imperdiet vel magna. Integer sed tempor lectus. Integer facilisis fermentum rhoncus.",
+            "link" : "/are-property-taxes-equitable",
+            "enabled": true
+        },
+        {
+            "title": "How does this site work? What’s the purpose of this tool?",
+            "icon": "topic-icon--search",
+            "link" : "/about",
+            "enabled": true
+        }
+    ],
+    "pages": [
+        {
+            "title": "How is property assessed in North Carolina? Who assesses it?",
+            "icon": "topic-icon--state",
+            "link" : "/how-is-property-assessed-in-north-carolina",
+            "enabled": true
+        },
+        {
+            "title": "Are property taxes equitable? Does systemic racism affect how much tax you pay?",
+            "icon": "topic-icon--scales",
+            "link" : "/are-property-taxes-equitable",
+            "enabled": true
+        },
+        {
+            "title": "How does this site work? What’s the purpose of this tool?",
+            "icon": "topic-icon--search",
+            "link" : "/about",
             "enabled": true
         }
     ],
     "our-story": [
         {
             "title": "Andrew Fletcher",
-            "icon": "andrew-fletcher",
+            "icon": "andrew-fletcher.jpg",
             "link" : false,
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In justo nulla, tempus quis bibendum vitae, porta sed ligula. Nunc ut ante vulputate sem imperdiet facilisis et nec leo. Curabitur pharetra elementum erat, eu volutpat dui facilisis non. Curabitur porttitor bibendum sem, sit amet dignissim sem lacinia in. Nulla cursus dapibus sapien, at egestas urna. Duis at vestibulum sapien. Nullam sagittis, magna vel cursus porta, arcu mi suscipit massa, vitae placerat velit tortor vitae lorem. Aliquam elit lacus, luctus at dapibus id, pretium nec mi. Integer congue erat quam, eget egestas dolor eleifend ut. Etiam eu pulvinar diam. Duis efficitur magna et dui feugiat accumsan. Curabitur ligula nisl, lacinia at dictum ut, imperdiet vel magna. Integer sed tempor lectus. Integer facilisis fermentum rhoncus.",
+            "content": "Andrew Fletcher (right) is a student, musician, tour guide, urban chicken farmer and community organizer. He is also currently a Independent candidate for Asheville City Council. He is currently enrolled at University of North Carolina at Asheville, where he took Land Economics in the Spring semester of 2022 with Professor Leah Mathews. Project #Worthmore is his Course Project for that class, where the assignment was to create an artifact that would continue to have use after the term ended. The purpose of the tool was to trigger thinking about the nature of tax assessments, and to get people to think about the nature of fairness and equity in how we fund municipal government. He lives in Asheville, NC with eight chickens: Anna, Sunny B, Shrimpinauty, Aegon Targaryhen, Gadget, Ruth Bader Ginsbird, Eggatha Christie and Harrie (pictured, left).",
             "enabled": true
         },
         {
             "title": "PRC Applications",
-            "icon": "prc-applications",
+            "icon": "prc-applications.png",
             "link" : "https://www.prcapps.com",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In justo nulla, tempus quis bibendum vitae, porta sed ligula. Nunc ut ante vulputate sem imperdiet facilisis et nec leo. Curabitur pharetra elementum erat, eu volutpat dui facilisis non.",
+            "content": "PRC Applications is a web and mobile development firm that specializes in Wordpress, Shopify, and native App development. We deliver value, cultivate trust, and work hard every day. Our business strives to be uniquely different through a community-focused business model designed for sustainable growth.",
             "enabled": true
         }
     ]

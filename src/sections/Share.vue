@@ -32,7 +32,11 @@ let share_text = computed(() => {
 })
 
 let share_mailto_text = computed(() => {
-  let temp = `mailto:brownie.newman@buncombecounty.org,alfred.whitesides@buncombecounty.org,terri.wells@buncombecounty.org,jasmine.beach-ferrara@buncombecounty.org,amanda.edwards@buncombecounty.org,parker.sloan@buncombecounty.org,robert.pressley@buncombecounty.org?subject=Worthmore%20Project&body=My%20property%20is%20*${multiple.value}X*%20more%20valuable%20than%20the%20Biltmore%20per%20acre!%20%F0%9F%92%B0%20Is%20it%20%23Worthmore%20or%20just%20%23Taxedmore%3F%20%F0%9F%A7%90%20Look%20up%20your%20address%20using%20this%20tool%20here%3A%20https%3A%2F%2Fworthmoreproject.com`;
+  // let temp = `mailto:brownie.newman@buncombecounty.org,alfred.whitesides@buncombecounty.org,terri.wells@buncombecounty.org,jasmine.beach-ferrara@buncombecounty.org,amanda.edwards@buncombecounty.org,parker.sloan@buncombecounty.org,robert.pressley@buncombecounty.org?subject=Worthmore%20Project&body=My%20property%20is%20*${multiple.value}X*%20more%20valuable%20than%20the%20Biltmore%20per%20acre!%20%F0%9F%92%B0%20Is%20it%20%23Worthmore%20or%20just%20%23Taxedmore%3F%20%F0%9F%A7%90%20Look%20up%20your%20address%20using%20this%20tool%20here%3A%20https%3A%2F%2Fworthmoreproject.com`;
+
+  let temp = `mailto:amanda.edwards@buncombecounty.org;brownie.newman@buncombecounty.org;alfred.whitesides@buncombecounty.org;terri.wells@buncombecounty.org;jasmine.beach-ferrara@buncombecounty.org;parker.sloan@buncombecounty.org;robert.pressley@buncombecounty.org?subject=Property%20tax%20valuation%20correct%3F&body=Dear%20County%20Commissioners%2C%0D%0A%0D%0AInsert%20your%20message%20here!%0D%0A%0D%0AMy%20property%20is%20*${multiple.value}X*%20more%20valuable%20than%20the%20Biltmore%20per%20acre!%20%F0%9F%92%B0%20Is%20it%20%23Worthmore%20or%20just%20%23Taxedmore%3F%20%F0%9F%A7%90%20Look%20up%20your%20address%20using%20this%20tool%20here%3A%20https%3A%2F%2Fworthmoreproject.com%0D%0A%0D%0ASincerely%2C%0D%0A%0D%0A`;
+
+
   return temp;
 })
 

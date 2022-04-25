@@ -17,13 +17,13 @@ const links = computed(() => {
 })
 
 let activePage = computed(() => {
-  return siteContentData['why-this-matters-links'].find(function(item) {
+  return siteContentData['pages'].find(function(item) {
     return (item.link == route.path);
   });
 })
 
 let icon_url = computed(() => {
-  const activeIcon = siteContentData['why-this-matters-links'].find(function(item) {
+  const activeIcon = siteContentData['pages'].find(function(item) {
     return (item.link == route.path);
   });
 
@@ -31,22 +31,31 @@ let icon_url = computed(() => {
 })
 
 let contentHTML = computed(() => {
-  const activeContent = siteContentData['why-this-matters-links'].find(function(item) {
+  const activeContent = siteContentData['pages'].find(function(item) {
     return (item.link == route.path);
   });
 
   if(route.path == '/how-is-property-assessed-in-north-carolina'){
     return content_how;
   }
+
+  if(route.path == '/are-property-taxes-equitable'){
+    return content_equitable;
+  }
+
+  if(route.path == '/about'){
+    return content_about;
+  }
+
+  
+
   return '';
 
 })
 
 import content_how from '../data/how-is-property-assessed-in-north-carolina.html?raw'
-import content_about from '../data/how-is-property-assessed-in-north-carolina.html?raw'
-import content_contact from '../data/how-is-property-assessed-in-north-carolina.html?raw'
-
-
+import content_equitable from '../data/are-property-taxes-equitable.html?raw'
+import content_about from '../data/about.html?raw'
 
 </script>
 

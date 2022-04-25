@@ -9,7 +9,7 @@ const props = defineProps({
 })
 
 let icon_url = computed(() => {
-  return '/images/' + props.content.icon + '.png';
+  return '/images/' + props.content.icon;
 })
 </script>
 
@@ -42,6 +42,7 @@ let icon_url = computed(() => {
     @apply flex-initial basis-1/4;
      img{
         @apply w-1/2 mx-auto sm:w-full;
+        @apply border-black border-4;
     }
   }
 
@@ -52,7 +53,7 @@ let icon_url = computed(() => {
   }
 
   p{
-    @apply text-sm font-light text-left;
+    @apply text-sm text-left;
     @apply pb-2;
   }
 

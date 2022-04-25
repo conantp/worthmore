@@ -13,9 +13,7 @@
   		<div class='page-section home-top'>
 	      <div class='page-section__inner home-top--inner'>
 			    <p class='hero'> 
-			    	Is your land worth
-						more than the Biltmore?<br>
-						Or is it just taxed more?
+						Is your land worth more per acre than the Biltmore?<br> Or is it just taxed more?
 			    </p>
 			    <AddressSearch 
 			    class='address-search' 
