@@ -33,9 +33,9 @@ const getPropertyCardURL = computed(() => (activeParcel ? 'https://prc-buncombe.
 import { useTippy } from 'vue-tippy'
 const appraised_land_value_container = ref()
 
-useTippy(appraised_land_value_container, {
-  content: "Land Value minus any Deferred Value",
-})
+// useTippy(appraised_land_value_container, {
+//   content: "Land Value minus any Deferred Value",
+// })
 
 </script>
 
