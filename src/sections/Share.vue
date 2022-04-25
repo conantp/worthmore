@@ -99,7 +99,9 @@ useTippy(btn, {
         </div>
         <div class='share__content_social'>
           <ShareFB />
-          <ShareTwitter />
+          <ShareTwitter 
+            :shareText="share_text"
+          />
         </div>
       </div>
 

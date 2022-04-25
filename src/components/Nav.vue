@@ -3,7 +3,7 @@
 import Logo from '../assets/images/logo.png'
 
 import ShareFBNav from '../components/ShareFBNav.vue'
-import ShareTwitter from '../components/ShareTwitter.vue'
+import ShareTwitterNav from '../components/ShareTwitterNav.vue'
 
 </script>
 
@@ -24,7 +24,7 @@ import ShareTwitter from '../components/ShareTwitter.vue'
       <router-link to="/#why-this-matters">Why this Matters</router-link>
       <router-link to="/about">About</router-link>
       <ShareFBNav />
-      <ShareTwitter />
+      <ShareTwitterNav />
     </div>
   </div>
 </template>
