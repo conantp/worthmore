@@ -69,7 +69,7 @@ const doCopy = () => {
         toastInstance.open({
             message: 'Text Copied',
             type: 'success',
-            position: 'bottom',
+            position: 'top',
             duration: 1000
             // all of other options may go here
         });
