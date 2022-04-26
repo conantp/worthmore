@@ -16,7 +16,18 @@ let icon_url = computed(() => {
 <template>
   <div class='project-partner'>
     <div class='image-container'>
-      <img :src="icon_url" />
+      <a 
+        :href="content.link"
+        target="_blank"
+        v-if="content.link"
+      >
+        <img :src="icon_url" />
+      </a>
+      <img 
+        v-else
+        :src="icon_url" 
+      />
+
     </div>
     <div class='project-content'>
       <p>
