@@ -26,7 +26,7 @@ const multiple = ref(props.primaryParcel ? store.multipleLandValuePerAcre(props.
     </div>
     <div class='multiple-inner'>
       <p class=''>
-        Your land is taxed
+        Your land is valued
       </p>
       <p
         v-if="props.primaryParcel && props.compareParcel"
