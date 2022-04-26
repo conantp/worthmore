@@ -20,7 +20,7 @@
 		@apply text-2xl sm:text-3xl;
 	}
 
-	a{
+	.page-content a{
 		text-decoration: underline;
 	}
 }
