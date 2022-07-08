@@ -88,14 +88,37 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
 
     >
       <div class='page-section__inner'>
+        <ParcelMultiple
+            class='parcel-multiple'
+            v-if="activeParcel && biltmoreParcel"
+            :primaryParcel="activeParcel"
+            :compareParcel="biltmoreParcel"
+        />
         <div class='property-grid'>
+          <div class='property-grid-header'>
+            <div>
+              Address
+            </div>
+            <div>
+              Appraised Land Value
+            </div>
+            <div>
+              Acerage
+            </div>
+            <div>
+              Appraised Land<br /> 
+              Value / Acre:
+            </div>
+            <div class='last'>
+            </div>
+          </div>
           <div class='property-primary'>
              <ParcelMetrics 
                 v-if="activeParcel"
                 :parcel="activeParcel"
             />
           </div>
-          <div>
+          <div class='property-comparison'>
              <ParcelMetrics 
                 v-if="biltmoreParcel"
                 :parcel="biltmoreParcel"
@@ -104,12 +127,7 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
 
           </div>
         </div>
-        <ParcelMultiple
-            class='parcel-multiple'
-            v-if="activeParcel && biltmoreParcel"
-            :primaryParcel="activeParcel"
-            :compareParcel="biltmoreParcel"
-          />
+        
       </div>
     </div>
 
@@ -132,24 +150,50 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
   }
 
   .results-top .page-section__inner{
-    @apply grid sm:grid-cols-3 sm:gap-2
+    /*@apply grid sm:grid-cols-3 sm:gap-2*/
   }
 
-  .property-grid{
+  /* Not currently active */
+  .property-grid-vertical{
     @apply bg-white sm:col-span-2 grid grid-cols-2 border-4 border-black rounded-xl;
   }
 
+  .property-grid{
+    /*@apply bg-white border-4 border-black rounded-xl;*/
+    @apply bg-white border-4 border-black rounded-xl;
+    @apply mt-4;
+
+  }
+
+  .property-grid-header{
+    @apply grid grid-cols-5;
+    @apply border-b-4 border-black rounded-tl-lg rounded-tr-lg;
+    @apply content-end;
+    @apply font-bold text-sm;
+    @apply text-black bg-secondary;
+
+    div{
+      @apply border-r-4 border-black;
+      @apply p-2;
+      @apply grid content-center;
+    }
+
+    div.last{
+      @apply border-0;
+    }
+  }
+
   .property-primary{
-    @apply border-r-4 border-black;
+    @apply border-b-4 border-black;
   }
 
   img{
       @apply max-w-4xl mx-auto grid w-full;
     }
 
-    .parcel-multiple{
-      @apply order-first sm:order-last;
-      @apply pt-4 mx-auto text-center;
-    }
+  .parcel-multiple{
+    /*@apply order-first sm:order-last;*/
+    @apply pt-4 mx-auto text-center;
+  }
 
 </style>

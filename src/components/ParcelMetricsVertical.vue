@@ -59,16 +59,16 @@ const appraised_land_value_container = ref()
       class=''
       ref="appraised_land_value_container"
     >
-      <!-- <label>Appraised Land Value:</label> -->
+      <label>Appraised Land Value:</label>
       ${{ dollarUSLocale.format(store.landValue(activeParcel) ) }}
     </div>
     <div>
-      <!-- <label>Acreage:</label> -->
+      <label>Acreage:</label>
       {{ addCommas(store.acrerage(activeParcel).toFixed(2) ) }} acres
     </div>
     <div>
-      <!-- <label>Appraised Land <br>Value / Acre:</label> -->
-      ${{ dollarUSLocale.format(store.landValuePerAcre(activeParcel) ) }} <br />per acre
+      <label>Appraised Land <br>Value / Acre:</label>
+      ${{ dollarUSLocale.format(store.landValuePerAcre(activeParcel) ) }} per acre
     </div>
     <div class='last'>
       <a 
@@ -87,23 +87,18 @@ const appraised_land_value_container = ref()
   }
 
   .outer{
-    @apply grid grid-cols-5;
   }
 
   .outer > div{
-    @apply text-sm sm:text-lg border-black border-r-4 p-4 text-center;
-    @apply grid content-center;
+    @apply text-sm sm:text-lg border-black border-b-4 p-4 text-center;
   }
 
   .outer .parcel-address{
-    @apply text-sm sm:text-lg font-bold text-ellipsis;
-
-}
+    @apply text-sm sm:text-xl font-bold text-ellipsis truncate;
+  }
 
   .outer .last{
-    @apply border-r-0;
-    @apply grid content-center;
-    @apply text-base;
+    @apply border-b-0;
   }
 
   label{

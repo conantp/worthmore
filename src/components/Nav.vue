@@ -22,6 +22,7 @@ import ShareTwitterNav from '../components/ShareTwitterNav.vue'
     </div>
     <div class='nav--links'>
       <router-link to="/about">About</router-link>
+      <a href="https://worthmoreupdates.blogspot.com">News</a>
       <router-link to="/contact">Contact</router-link>
       <ShareFBNav />
       <!-- <ShareTwitterNav /> -->

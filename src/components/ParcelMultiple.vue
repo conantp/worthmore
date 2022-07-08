@@ -21,9 +21,9 @@ const multiple = ref(props.primaryParcel ? store.multipleLandValuePerAcre(props.
 
 <template>
   <div id='multiple'>
-    <div class='multiple-prefix'>
+    <!-- <div class='multiple-prefix'>
       =
-    </div>
+    </div> -->
     <div class='multiple-inner'>
       <p class=''>
         Your land is valued
@@ -35,7 +35,7 @@ const multiple = ref(props.primaryParcel ? store.multipleLandValuePerAcre(props.
         {{ multiple }}X MORE
       </p>
       <p class=''>
-        per acre than the<br> Biltmore Estate!
+        per acre than the Biltmore Estate!
       </p>
     </div>
   </div>
@@ -43,7 +43,8 @@ const multiple = ref(props.primaryParcel ? store.multipleLandValuePerAcre(props.
 
 <style scoped>
   #multiple{
-    @apply sm:grid grid-cols-10 content-center;
+    /*@apply sm:grid grid-cols-10 content-center;*/
+    @apply content-center;
   }
 
   .multiple-prefix{
@@ -51,7 +52,7 @@ const multiple = ref(props.primaryParcel ? store.multipleLandValuePerAcre(props.
     @apply text-8xl font-bold col-span-1 text-center lg:grid content-center;
   }
   .multiple-inner{
-    @apply sm:col-span-9;
+    /*@apply sm:col-span-9;*/
   }
   .multiple-figure{
     @apply text-6xl font-bold;

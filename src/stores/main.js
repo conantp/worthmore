@@ -23,7 +23,21 @@ export const useMainStore = defineStore('main', {
 
   getters: {
     fullAddress: (state) => {
-      return (parcel) => parcel.attributes.HouseNumber + " " + parcel.attributes.NumberSuffix + " " + parcel.attributes.StreetName + " " + parcel.attributes.StreetType; 
+      return (parcel) => {
+        var full_address_text = parcel.attributes.HouseNumber;
+
+        if(typeof parcel.attributes.NumberSuffix !== typeof undefined && parcel.attributes.NumberSuffix){
+          full_address_text += " " + parcel.attributes.NumberSuffix;
+        }
+
+        full_address_text += " " + parcel.attributes.StreetName + " " + parcel.attributes.StreetType;
+
+        if(typeof parcel.attributes.CondoUnit !== typeof undefined && parcel.attributes.CondoUnit){
+          full_address_text += " #" + parcel.attributes.CondoUnit;
+        }
+
+        return full_address_text;
+      }
     },
     searchResultsLink: (state) => {
       return (parcel) => {
@@ -38,6 +52,10 @@ export const useMainStore = defineStore('main', {
         full_address_text += "-";
         full_address_text += parcel.attributes.StreetType;
 
+        if(typeof parcel.attributes.CondoUnit !== typeof undefined && parcel.attributes.CondoUnit){
+          full_address_text += "-" + parcel.attributes.CondoUnit;
+        }
+
         return  '/results/' + parcel.attributes.PIN + "/" + encodeURIComponent(full_address_text); 
       }
     },
@@ -51,7 +69,14 @@ export const useMainStore = defineStore('main', {
       return (parcel) => parcel.attributes.Acreage
     },
     landValuePerAcre: (state) => {
-      return (parcel) => Math.round(state.landValue(parcel) / state.acrerage(parcel) )
+      return (parcel) => {
+        if(! state.landValue(parcel) || ! state.acrerage(parcel)){
+          return 0;
+        }
+        else{
+          return Math.round(state.landValue(parcel) / state.acrerage(parcel) ); 
+        }
+      }
     },
     multipleLandValuePerAcre: (state) => {
       return (primaryParcel, compareParcel) => {

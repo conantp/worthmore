@@ -22,6 +22,9 @@
         <div class='text-md'>
           {{ store.fullAddress(row) }}
         </div>
+        <div class='font-normal text-xs'>
+          {{ row.attributes.Owner }}
+        </div>
     </a>
   </li>
 </template>

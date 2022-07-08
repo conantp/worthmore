@@ -21,13 +21,26 @@ const props = defineProps({
   }
 })
 
+function splitStringAtInterval (string, interval) {
+  var result = [];
+  for (var i=0; i<string.length; i+=interval)
+    result.push(string.substring (i, i+interval));
+  return result.join("\n").replace(/Z/g, '💰');
+}
+
+
 const multiple = ref(props.primaryParcel ? store.multipleLandValuePerAcre(props.primaryParcel, props.compareParcel) : '' ) 
+
+const multipleIcon = ref(props.primaryParcel ? '💰'.repeat(store.multipleLandValuePerAcre(props.primaryParcel, props.compareParcel) ) : '' ) 
+
+const multipleIconSplit = ref(props.primaryParcel ? 'Z'.repeat(store.multipleLandValuePerAcre(props.primaryParcel, props.compareParcel) ) : '' ) 
 
 
 let share_text = computed(() => {
-  let temp = `My property is *${multiple.value}X* more valuable than the Biltmore per acre! 💰 ` + 
+  let temp = `I just found out my property is *${multiple.value}X* more valuable than the Biltmore per acre! ` +
+    `\n${splitStringAtInterval(multipleIconSplit.value, 5) }\n` + 
     `Is it #Worthmore or just #Taxedmore? 🧐 Look up your address ` +
-    `using this tool here: https://worthmoreproject.com`;
+    `using this tool: https://worthmoreproject.com`;
   return temp;
 })
 
@@ -146,7 +159,7 @@ useTippy(btn, {
 
       textarea{
         @apply border-black border-4 rounded-xl;
-        @apply p-3 h-44 sm:h-28;
+        @apply p-3 h-44 sm:h-56;
         @apply text-lg sm:text-xl;
         @apply w-full
       }
