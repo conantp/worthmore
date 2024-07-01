@@ -37,7 +37,7 @@ const multipleIconSplit = ref(props.primaryParcel ? 'Z'.repeat(store.multipleLan
 
 
 let share_text = computed(() => {
-  let temp = `I just found out my property is *${multiple.value}X* more valuable than the Biltmore per acre! ` +
+  let temp = `I just found out my property is *${multiple.value}X* more valuable per acre than the Biltmore! ` +
     `\n${splitStringAtInterval(multipleIconSplit.value, 5) }\n` + 
     `Is it #Worthmore or just #Taxedmore? 🧐 Look up your address ` +
     `using this tool: https://worthmoreproject.com`;
@@ -159,6 +159,8 @@ useTippy(btn, {
 
       textarea{
         @apply border-black border-4 rounded-xl;
+
+        /*@apply p-3 h-44 sm:h-72;*/
         @apply p-3 h-44 sm:h-56;
         @apply text-lg sm:text-xl;
         @apply w-full

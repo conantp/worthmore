@@ -110,6 +110,7 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
               Value / Acre:
             </div>
             <div class='last'>
+              More Info
             </div>
           </div>
           <div class='property-primary'>
@@ -132,6 +133,7 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
     </div>
 
     <ShareSection 
+        class='share-section'
         v-if="activeParcel && biltmoreParcel"
         :primaryParcel="activeParcel"
         :compareParcel="biltmoreParcel"
@@ -161,7 +163,7 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
   .property-grid{
     /*@apply bg-white border-4 border-black rounded-xl;*/
     @apply bg-white border-4 border-black rounded-xl;
-    @apply mt-4;
+    @apply mt-8;
 
   }
 
@@ -196,4 +198,8 @@ const multiple = ref(biltmoreData.attributes ? store.multipleLandValuePerAcre(ac
     @apply pt-4 mx-auto text-center;
   }
 
+/*  .share-section{
+    @apply w-1/2 mx-auto;
+  }
+*/
 </style>
