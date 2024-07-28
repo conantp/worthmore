@@ -36,7 +36,10 @@ function getMarketValue(row){
 }
 
 
-const url_prefix = "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1/query?where=PIN%20%3D%20'";
+// const url_prefix = "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1/query?where=PIN%20%3D%20'";
+
+const url_prefix = "https://gis.buncombecounty.org/arcgis/rest/services/opendata_2/MapServer/15/query?where=PIN%20%3D%20'";
+
 
 // const url_prefix = "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1/query?where=Address%20%3D%20'";
 const url_suffix = "'&outFields=*&outSR=4326&f=json";
@@ -52,14 +55,16 @@ getData(route.params.address);
 const activeParcel = computed(() => (data.value ? data.value.features[0] : '') )
 
 
-const bt_url_prefix = "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1/query?where=PIN%20%3D'";
+// const bt_url_prefix = "https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1/query?where=PIN%20%3D'";
+const bt_url_prefix = "https://gis.buncombecounty.org/arcgis/rest/services/opendata_2/MapServer/15/query?where=PIN%20%3D%20'";
 
 const biltmoreData = ref(null)
 
 function getBiltmore(address) {
   console.log(bt_url_prefix + address + url_suffix);
 
-  fetch("https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1/query?where=PIN%20%3D%20'" + address + "'&outFields=*&outSR=4326&f=json")
+  // fetch("https://gis.buncombecounty.org/arcgis/rest/services/opendata/MapServer/1/query?where=PIN%20%3D%20'" + address + "'&outFields=*&outSR=4326&f=json")
+  fetch("https://gis.buncombecounty.org/arcgis/rest/services/opendata_2/MapServer/14/query?where=PIN%20%3D%20'" + address + "'&outFields=*&outSR=4326&f=json")
     .then(r => r.json())
     .then(res => biltmoreData.value = res)
 }
