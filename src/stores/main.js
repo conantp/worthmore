@@ -64,7 +64,7 @@ export const useMainStore = defineStore('main', {
     },
     landValue: (state) => {
       // return (parcel) => parcel.attributes.LandValue
-      return (parcel) => (parcel.attributes.TotalMarketValue - parcel.attributes.AppraisedValue) + parcel.attributes.LandValue
+      return (parcel) => parseFloat(parcel.attributes.TotalMarketValue - parcel.attributes.AppraisedValue) + parseFloat(parcel.attributes.LandValue)
     },
     acrerage: (state) => {
       return (parcel) => parcel.attributes.Acreage
