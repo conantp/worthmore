@@ -61,7 +61,7 @@ let isSunshineLabs = computed(() => {
         @apply border-black border-4;
         @apply bg-white;
         &.no-border{
-          @apply border-0;
+          @apply border-0 bg-transparent;
         }
     }
   }
