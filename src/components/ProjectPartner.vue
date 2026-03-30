@@ -11,21 +11,26 @@ const props = defineProps({
 let icon_url = computed(() => {
   return '/images/' + props.content.icon;
 })
+
+let isSunshineLabs = computed(() => {
+  return props.content.icon === 'sunshine-labs.png';
+})
 </script>
 
 <template>
   <div class='project-partner'>
     <div class='image-container'>
-      <a 
+      <a
         :href="content.link"
         target="_blank"
         v-if="content.link"
       >
-        <img :src="icon_url" />
+        <img :src="icon_url" :class="{ 'no-border': isSunshineLabs }" />
       </a>
-      <img 
+      <img
         v-else
-        :src="icon_url" 
+        :src="icon_url"
+        :class="{ 'no-border': isSunshineLabs }"
       />
 
     </div>
@@ -55,6 +60,9 @@ let icon_url = computed(() => {
         @apply w-1/2 mx-auto sm:w-full;
         @apply border-black border-4;
         @apply bg-white;
+        &.no-border{
+          @apply border-0;
+        }
     }
   }
 
